@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.top-header {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative; 
+}
+
+
+.language-icon {
+  font-size: 24px;
+  cursor: pointer;
+  color: #007bff; 
+  position: absolute;
+  left: 20px;
+}
+
+.logo img {
+  height: 40px;
+}
+
+
+.header-buttons {
+  position: absolute;
+  right: 20px; 
+  display: flex;
+}
+
+.header-buttons .client-btn,
+.header-buttons .account-btn {
+  margin-left: 10px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+.client-btn {
+  background-color: #007bff;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.client-btn:hover {
+  background-color: #0056b3;
+}
+
+
+.account-btn {
+  background-color: #007bff; 
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.account-btn:hover {
+  background-color: #0056b3;
+}
+
+
+.bottom-header {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.bottom-header nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.bottom-header nav a:hover {
+  color: #007bff;
+}
+
+.bottom-header nav a.active {
+  color: #007bff;
+  font-weight: bold;
+}
+
+
+
+
+.eco-vibe-container {
+  display: flex;
+  align-items: center;
+  background-color: #a6d8a8;
+  padding: 0px 10px;
+  border-radius: 8px;
+  width: 100%;
+  min-height: 500px; 
+}
+
+
+.eco-vibe-text {
+  flex: 1;
+  text-align: center;
+  padding-right: 20px;
+  max-width: 500px;
+}
+
+.eco-vibe-text h1 {
+  font-size: 2.5em;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.eco-vibe-text h2 {
+  font-size: 1.5em;
+  color: #fff;
+  margin: 0;
+  font-weight: bold;
+}
+
+.eco-vibe-text p {
+  color: #0066cc;
+  font-size: 1em;
+  margin-top: 10px;
+}
+
+.eco-vibe-button {
+  background-color: #0066cc;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.eco-vibe-button:hover {
+  background-color: #005bb5;
+}
+
+
+.eco-vibe-images {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 250px;
+  gap: 15px;
+}
+
+.image-style {
+  width: 250px; 
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  transition: transform 0.3s;
+}
+
+.image-style:hover {
+  transform: scale(1.05);
+}
+
+
+.image-style:nth-child(1) {
+  top: 0;
+  left: 400px;
+  z-index: 3;
+}
+
+.image-style:nth-child(2) {
+  top: 15px;
+  left: 90px;
+  z-index: 2;
+}
+
+.image-style:nth-child(3) {
+  top: 150px;
+  left: 200px;
+  z-index: 4;
+}
