@@ -1,7 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  
 }
 .top-header {
   display: flex;
@@ -194,3 +198,4 @@
   left: 200px;
   z-index: 4;
 }
+
