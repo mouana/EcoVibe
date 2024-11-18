@@ -1,0 +1,180 @@
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card-img-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: 900px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+  .overlay-status {
+    font-size: 1rem; /* Taille de la police */
+    margin-bottom: 15px;
+    font-weight: bold; /* Police en gras */
+    color: #1caa3ddf; /* Couleur verte */
+    background-color: rgba(255, 255, 255, 0.8); /* Fond clair pour le contraste */
+    padding: 5px 10px; /* Espacement intérieur */
+    border-radius: 5px; /* Coins arrondis */
+  }
+  .card:hover .card-img-top {
+    transform: scale(1.1); /* Slight zoom effect when hovering */
+  }
+  
+  .card-body {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .overlay-content {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .overlay-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  
+  .overlay-description {
+    font-size: 0.9rem;
+  }
+  
+  .overlay-status {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-weight: 600;
+  }
+  
+  .btn-light {
+    background-color: rgba(255, 255, 255, 0.8);
+    color:#1caa3ddf;
+    font-weight: 600;
+  }
+  
+  .card:hover .btn-light {
+    background-color: #f0f0f0;
+  }
+  
+  .card-body p {
+    font-size: 0.95rem;
+  }
+  
+  .card-body .btn-primary {
+    font-size: 1rem;
+    padding: 12px;
+  }
+  .header-background {
+    background-image: url('/public/7.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0; /* ajustez la hauteur selon vos besoins */
+    color: white; /* pour s'assurer que le texte soit lisible sur l'image */
+  }.container {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  
+  .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 2rem;
+  }
+  
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card:hover .card-img-top {
+    transform: scale(1.1);
+  }
+  
+  .card-body {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Ajoutez ici les autres règles CSS nécessaires */
+  .header-background {
+    background-image: url('../../public/7.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+   
+    color: white;
+  }
+  
+  /* EXPERT */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 500px 0;
+  }
+  
+  .Nos-expert {
+    text-align: center;
+    margin-bottom: 150px;
+    padding: 90px;
+    
+  }
+  
+  
+  .Nos-expert h1 {
+    font-size: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .Nos-expert p {
+    font-size: 30px;
+    color: #ccc;
+  }
