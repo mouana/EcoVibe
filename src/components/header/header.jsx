@@ -1,6 +1,9 @@
 import React from 'react';
 import { FaGlobe, FaUserCircle } from 'react-icons/fa'; 
+
 import { NavLink } from 'react-router-dom';
+
+
 
 const Header = () => {
   return (
@@ -18,14 +21,13 @@ const Header = () => {
           </NavLink>
           <button className="account-btn">
          
-              <FaUserCircle size={15} /> Mon espace
+               <FaUserCircle size={15} /> Mon espace
            
           </button>
         </div>
       </div>
 
       <div className="bottom-header">
-
       <nav>
   <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>Accueil</NavLink>
   <NavLink to="/label" className={({ isActive }) => (isActive ? "active" : "")}>Label</NavLink>

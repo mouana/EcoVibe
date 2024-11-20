@@ -4,7 +4,7 @@
 
 /* Dans index.css */
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
-* {
+/* * {
   margin: 0;
   padding: 0;
   
@@ -110,7 +110,7 @@
   color: #007bff;
   font-weight: bold;
 }
-
+ */
 
 
 
@@ -125,7 +125,7 @@
   height:80vh;
 }
 
-
+/* 
 .eco-vibe-text {
   text-align: center;
   padding-right: 20px;
@@ -173,7 +173,8 @@
   align-items: center;
   top: 15px;
   
-}
+} */
+
 
 .image-style {
   width: 250px; 
