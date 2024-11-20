@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 export default function DecServ() {
   const[Change,setChange] = useState("./homephotos/Custom-Luxury-Home-Dallas.jpg");
   const[ChangeBack,setChangeBack] = useState("./homephotos/energies_renouvelables_grand_est_2023.jpg");
+  const[ChangeP2,setChangeP2] = useState("./homephotos/Custom-Luxury-Home-Dallas.jpg");
+  const[ChangeBackP2,setChangeBackP2] = useState("./homephotos/P22.jpg");
 
 
 
@@ -17,6 +19,21 @@ export default function DecServ() {
     }
     else{
       setChangeBack("./homephotos/energies_renouvelables_grand_est_2023.jpg");
+    }
+  }
+
+  function handelClickP2(){
+    if(ChangeP2 === "./homephotos/Custom-Luxury-Home-Dallas.jpg"){
+      setChangeP2("./homephotos/P22.jpg");
+    }
+    else{
+      setChangeP2("./homephotos/Custom-Luxury-Home-Dallas.jpg");
+    }
+    if (ChangeBackP2 === "./homephotos/P22.jpg" ){
+      setChangeBackP2("./homephotos/Custom-Luxury-Home-Dallas.jpg");
+    }
+    else{
+      setChangeBackP2("./homephotos/P22.jpg");
     }
   }
   
@@ -36,7 +53,7 @@ export default function DecServ() {
           Perspiciatis vitae culpa accusantium praesentium laboriosam
             </p>
           </div>
-          <div className="servDesc" style = {{width:"100%",display:"flex",flexDirection:"row"}}>
+          <div className="servDesc" style = {{width:"100%",display:"flex",flexDirection:"row"}} onClick={handelClickP2} >
           <img src="./homephotos/P22.jpg" alt="" style ={{width:"20%",margin:"10px",borderRadius:"5px"}} />
             <p style = {{width:"60%"}}>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -48,8 +65,7 @@ export default function DecServ() {
           <img src="./homephotos/transition-climat-energies-renouvelables-France-UE-objectif.jpg" alt="" style ={{width:"20%",margin:"10px",borderRadius:"5px"}} />
           <p style = {{width:"60%"}}>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Perspiciatis vitae culpa accusantium praesentium laboriosam
-             
+              Perspiciatis vitae culpa accusantium praesentium laboriosa
             </p>
           </div>
         </div>
