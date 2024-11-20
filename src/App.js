@@ -18,6 +18,16 @@ import MessageSection from './components/MessageSection';
 import MainPage from './components/MainPage';
 import '../src/css/test.css';
 import NosExperts from './components/NosExperts';
+import Reviews from './components/Reviews';
+import EnergySection from './components/Section3';
+import Services from './components/Services';
+import ContactSection from './components/Contact';
+import Simulateur from "./components/Simulateur";
+import Signup from './components/Signup';
+import VoirPlus from './/components/VoirPlus';
+import Footer from './components/Footer';
+import Inscription from './components/Inscription';
+import ContactUsPage from './components/ContactUsPage';
 
 
 function App() {
@@ -25,9 +35,18 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes> 
-        <Route path="/" element={<Home />} /> 
+      <Route path="/" element={
+          <>
+            <Home />
+            <Services />
+            <EnergySection />
+            <Reviews />
+            <ContactSection />
+          </>
+        } />
         <Route path="/Service" element={<Service/>} /> 
         <Route path="/MainPage" element={<MainPage/>} /> 
+        <Route path="/HeroSection" element={<HeroSection/>} /> 
         <Route path="/NosExperts" element={<NosExperts/>} /> 
         <Route path="/DecServ" element={<DecServ/>} /> 
         <Route path="/SolutionsSection" element={<SolutionsSection/>} /> 
@@ -39,9 +58,15 @@ function App() {
         <Route path="/QuestionSection" element={<QuestionSection/>} /> 
         <Route path="/BlogSection" element={<BlogSection/>} /> 
         <Route path="/MessageSection" element={<MessageSection/>} /> 
+        <Route path="/inscription" element={<Inscription />} />
+        <Route path="/simulateur" element={<Simulateur />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/contact" element={<ContactUsPage />} />
+        <Route path="/voir-plus" element={<VoirPlus />} />
       </Routes>
       </BrowserRouter>
     
+
   );
 }
 

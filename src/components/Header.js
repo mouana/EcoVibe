@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaGlobe, FaUserCircle } from 'react-icons/fa'; 
-import { Link } from 'react-router-dom'; // Import Link for routing
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -13,23 +13,30 @@ const Header = () => {
           <img src="./logo.png" alt="EcoVibe Logo" />
         </div>
         <div className="header-buttons">
+        <NavLink to="/signup" className="client-btn">
           <button className="client-btn">Devenir client</button>
+          </NavLink>
           <button className="account-btn">
-            <FaUserCircle size={15} /> Mon espace
+         
+              <FaUserCircle size={15} /> Mon espace
+           
           </button>
         </div>
       </div>
 
       <div className="bottom-header">
-        <nav>
-          <Link to="/" className="active">Accueil</Link>
-          <Link to="#label">Label</Link>
-          <Link to="#simulator">Simulateur</Link>
-          <Link to="#label1">Label</Link>
-          <Link to="/service">Service</Link> {/* Link to Service page */}
-          <Link to="#label3">Label</Link>
-        </nav>
-      </div>
+
+      <nav>
+  <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>Accueil</NavLink>
+  <NavLink to="/label" className={({ isActive }) => (isActive ? "active" : "")}>Label</NavLink>
+  <NavLink to="/simulateur" className={({ isActive }) => (isActive ? "active" : "")}>Simulateur</NavLink>
+  <NavLink to="/label1" className={({ isActive }) => (isActive ? "active" : "")}>Label</NavLink>
+  <NavLink to="/label2" className={({ isActive }) => (isActive ? "active" : "")}>Label</NavLink>
+  <NavLink to="/label3" className={({ isActive }) => (isActive ? "active" : "")}>Label</NavLink>
+  <NavLink to="/produits" className={({ isActive }) => (isActive ? "active" : "")}>Produits</NavLink>
+
+</nav>
+    </div>
     </div>
   );
 };
