@@ -1,98 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  
 }
 .top-header {
   display: flex;
-  justify-content: center; 
   align-items: center;
-  padding: 10px 20px;
-  background-color: #ffffff;
+  justify-content: center;
+  padding: 12px 20px;
+  background-color: #f7f7f7;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: relative; 
+  position: relative;
 }
 
-
 .language-icon {
-  font-size: 24px;
-  cursor: pointer;
-  color: #007bff; 
   position: absolute;
   left: 20px;
+  cursor: pointer;
+  color: #1d4ed8; /* Correspond à text-blue-600 */
 }
 
 .logo img {
   height: 40px;
 }
 
-
 .header-buttons {
   position: absolute;
-  right: 20px; 
+  right: 20px;
   display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.header-buttons .client-btn,
-.header-buttons .account-btn {
-  margin-left: 10px;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-
-.client-btn {
-  background-color: #007bff;
-  color: #fff;
-  transition: background-color 0.3s;
-}
-
-.client-btn:hover {
-  background-color: #0056b3;
-}
-
-
+.client-btn,
 .account-btn {
-  background-color: #007bff; 
-  color: #fff;
+  background-color: #1d4ed8; /* Correspond à bg-blue-600 */
+  color: #ffffff;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
   transition: background-color 0.3s;
 }
 
+.client-btn:hover,
 .account-btn:hover {
-  background-color: #0056b3;
+  background-color: #1e40af; /* Correspond à hover:bg-blue-700 */
 }
-
 
 .bottom-header {
   display: flex;
   justify-content: center;
-  padding: 18px;
+  padding: 12px;
   background-color: #ffffff;
   border-top: 1px solid #e0e0e0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-
 .bottom-header nav a {
-  margin: 0 55px;
+  margin: 0 16px;
   text-decoration: none;
-  color: #333;
-  font-size: 18px;
+  color: #4b5563; /* Correspond à text-gray-700 */
   font-weight: 500;
   transition: color 0.3s;
 }
 
 .bottom-header nav a:hover {
-  color: #007bff;
+  color: #1d4ed8; /* Correspond à hover:text-blue-600 */
 }
 
-.bottom-header nav a.active {
-  color: #007bff;
-  font-weight: bold;
-}
 
 
 
@@ -187,17 +168,4 @@
   top: 150px;
   left: 200px;
   z-index: 4;
-}
-/* sect 2 */
-.ServicSect{
-  width:100%;
-  Display :"flex";
-  flex-direction:"row";
-  margin:10px;
-}
-.serv{
-  width:50%
-}
-.serv img{
-  width:30%;
 }

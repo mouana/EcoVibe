@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaGlobe, FaUserCircle } from 'react-icons/fa'; 
-
+import { Link } from 'react-router-dom'; // Import Link for routing
 
 const Header = () => {
   return (
@@ -15,19 +15,19 @@ const Header = () => {
         <div className="header-buttons">
           <button className="client-btn">Devenir client</button>
           <button className="account-btn">
-            <FaUserCircle size={15} /> Mon espace
+             Mon espace
           </button>
         </div>
       </div>
 
       <div className="bottom-header">
         <nav>
-          <a href="#home" className="active">Accueil</a>
-          <a href="#label">Label</a>
-          <a href="#simulator">Simulateur</a>
-          <a href="#label1">Label</a>
-          <a href="#label2">Label</a>
-          <a href="#label3">Label</a>
+          <Link to="/" className="active">Accueil</Link>
+          <Link to="#label">Label</Link>
+          <Link to="#simulator">Simulateur</Link>
+          <Link to="#label1">Label</Link>
+          <Link to="/service">Service</Link> {/* Link to Service page */}
+          <Link to="#label3">Label</Link>
         </nav>
       </div>
     </div>
