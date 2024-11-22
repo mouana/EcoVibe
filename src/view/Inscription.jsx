@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { FaUser, FaEnvelope, FaLock, FaPhoneAlt,FaArrowRight, FaArrowLeft  } from "react-icons/fa"; // Importer les icônes
+import { FaUser, FaEnvelope, FaLock, FaPhoneAlt,FaArrowRight, FaArrowLeft  } from "react-icons/fa"; 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-function inscrire() {
+function Inscrire() {
 
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -282,4 +282,4 @@ function inscrire() {
   );
 }
 
-export default inscrire;
+export default Inscrire;
