@@ -6,6 +6,7 @@ import Signup from './view/Signup'
 import Inscrire from './view/Inscription'
 import Expert from './view/Expert'
 import ProjctCard from './view/ProjctCard'
+import Service from './view/Service'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Route path="Inscription" element={<Inscrire />} />
       <Route path="Expert" element={<Expert />} />
       <Route path="Card" element={<ProjctCard />} />
+      <Route path="service" element={<Service />} />
       </Routes>
       </BrowserRouter>
     
