@@ -1,11 +1,11 @@
-import Header from "../components/headers/Header"
-import Footer from "../components/footers/Footer"
-import Decouvrir from "../components/Simulateur/Decouvrir"
-import Formulaire from "../components/Simulateur/Formulaire"
-import ProjectCard from "../components/Simulateur/ProjectCard"
-import Slide from "../components/Simulateur/Slide"
-import Devis from "../components/Simulateur/Devis"
-import TeamSection from "../components/Simulateur/TeamSection"
+import Header from "../Components/headers/Header"
+import Footer from "../Components/footers/Footer"
+import Decouvrir from "../Components/Simulateur/Decouvrir"
+import Formulaire from "../Components/Simulateur/Formulaire"
+import ProjectCard from "../Components/Simulateur/ProjectCard"
+import Slide from "../Components/Simulateur/Slide"
+import Devis from "../Components/Simulateur/Devis"
+import TeamSection from "../Components/Simulateur/TeamSection"
 export default function Simulateur(){
     return(
         <>

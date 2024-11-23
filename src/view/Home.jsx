@@ -1,11 +1,11 @@
-import Header from '../components/headers/Header';
-import SectionOne from '../components/home/SectionOne';
-import SectionTwo from '../components/home/SectionTwo';
-import SectionTh from '../components/home/SectionTh';
-import SectionFour from '../components/home/SectionFour';
-import SectionFive from '../components/home/SectionFive';
-import SectionSe from '../components/home/SectionSe';
-import Footer from '../components/footers/Footer';
+import Header from '../Components/headers/Header';
+import SectionOne from '../Components/home/SectionOne';
+import SectionTwo from '../Components/home/SectionTwo';
+import SectionTh from '../Components/home/SectionTh';
+import SectionFour from '../Components/home/SectionFour';
+import SectionFive from '../Components/home/SectionFive';
+import SectionSe from '../Components/home/SectionSe';
+import Footer from '../Components/footers/Footer';
 export default function Home (){
     return (
         <div>
