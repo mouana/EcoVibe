@@ -73,7 +73,7 @@ const Header = () => {
             Simulateur
           </NavLink>
           <NavLink
-            to="/NosExperts"
+            to="/Expert"
             className={({ isActive }) =>
               isActive
                 ? "text-blue-500 font-bold"
@@ -83,24 +83,14 @@ const Header = () => {
             Experts
           </NavLink>
           <NavLink
-            to="/label2"
+            to="/Card"
             className={({ isActive }) =>
               isActive
                 ? "text-blue-500 font-bold"
                 : "text-gray-800 hover:text-blue-500"
             }
           >
-            Label 2
-          </NavLink>
-          <NavLink
-            to="/label3"
-            className={({ isActive }) =>
-              isActive
-                ? "text-blue-500 font-bold"
-                : "text-gray-800 hover:text-blue-500"
-            }
-          >
-            Label 3
+            Card
           </NavLink>
           <NavLink
             to="/service"
@@ -127,14 +117,11 @@ const Header = () => {
           <NavLink to="/simulateur" className="text-gray-800" onClick={toggleMenu}>
             Simulateur
           </NavLink>
-          <NavLink to="/NosExperts" className="text-gray-800" onClick={toggleMenu}>
+          <NavLink to="/Expert" className="text-gray-800" onClick={toggleMenu}>
             Experts
           </NavLink>
-          <NavLink to="/label2" className="text-gray-800" onClick={toggleMenu}>
-            Label 2
-          </NavLink>
-          <NavLink to="/label3" className="text-gray-800" onClick={toggleMenu}>
-            Label 3
+          <NavLink to="/Card" className="text-gray-800" onClick={toggleMenu}>
+          Card
           </NavLink>
           <NavLink to="/service" className="text-gray-800" onClick={toggleMenu}>
             Service
