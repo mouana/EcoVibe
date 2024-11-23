@@ -5,17 +5,17 @@ const services = [
   {
     icon: <FaLeaf size={36} />,
     title: 'Lawn Care',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus hendrerit suscipit egestas.',
+    text: 'Lorem ipsum dolor sit anet, consectetur adipiscing elit. Vivamus hendrerit suscipit egestas.',
   },
   {
     icon: <FaTree size={36} />,
     title: 'Tree and Shrub Care',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus hendrerit suscipit egestas.',
+    text: 'Lorem ipsum dolor sit anet, consectetur adipiscing elit. Vivamus hendrerit suscipit egestas.',
   },
   {
     icon: <FaUserTie size={36} />,
     title: 'Free Consultations',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus hendrerit suscipit egestas.',
+    text: 'Lorem ipsum dolor sit anmet, consectetur adipiscing elit. Vivamus hendrerit suscipit egestas.',
   },
   {
     icon: <FaSeedling size={36} />,
