@@ -63,24 +63,14 @@ body {
   }
   
   /* Texte principal */
-  h2, h3 {
-    color: #007aff; /* Bleu spécifié */
-  }
-  
-  h5 {
-    color: #82d49d; /* Vert spécifié */
-  }
-  
+
   /* Bouton avec effet de hover */
   button {
     font-weight: 600;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
-  button:hover {
-    background-color: #007aff; /* Bleu spécifié */
-    color: #fff;
-  }
+
 
   
   .container {
@@ -107,15 +97,15 @@ body {
   padding: 20px;
 }
 
-button {
+/* button {
   background-color: #007aff;
   color: #fff;
   border-radius: 5px;
-}
+} */
 
-button:hover {
+/* button:hover {
   background-color: #005bb5;
-}
+} */
 
   /* Responsive design pour petites tailles d'écran */
   @media (max-width: 768px) {

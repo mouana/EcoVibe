@@ -7,7 +7,7 @@ import Inscrire from './view/Inscription'
 import Expert from './view/Expert'
 import ProjctCard from './view/ProjctCard'
 import Service from './view/Service'
-
+import Apprendre from './view/Apprendre'
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
       <Route path="Expert" element={<Expert />} />
       <Route path="Card" element={<ProjctCard />} />
       <Route path="service" element={<Service />} />
+      <Route path="Apprendre" element={<Apprendre />} />
       </Routes>
       </BrowserRouter>
     
