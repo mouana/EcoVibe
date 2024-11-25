@@ -4,6 +4,7 @@ import { faLinkedin, faTwitter, faInstagram } from '@fortawesome/free-brands-svg
 
 const ExpertProfiles = () => {
   const [selectedPage, setSelectedPage] = useState(1);
+  const [selectedExpert, setSelectedExpert] = useState(null); // Ajouter un état pour l'expert sélectionné
   const expertsPerPage = 4;
 
   // Pagination logic
@@ -15,6 +16,14 @@ const ExpertProfiles = () => {
 
   const handlePageChange = (pageNumber) => {
     setSelectedPage(pageNumber);
+  };
+
+  const handleExpertClick = (expert) => {
+    setSelectedExpert(expert); // Mettre à jour l'expert sélectionné
+  };
+
+  const handleCloseDescription = () => {
+    setSelectedExpert(null); // Fermer la description détaillée
   };
 
   return (
@@ -55,6 +64,12 @@ const ExpertProfiles = () => {
                 ></div>
               </div>
               <p className="text-center">{expert.progress}% Complété</p>
+              <button
+                onClick={() => handleExpertClick(expert)} // Afficher la description détaillée
+                className="mt-4 text-green-600 hover:text-green-800 text-sm font-semibold"
+              >
+                Voir Description
+              </button>
             </div>
           ))}
         </div>
@@ -75,30 +90,56 @@ const ExpertProfiles = () => {
             </button>
           ))}
         </div>
+
+        {/* Affichage de la description détaillée */}
+        {selectedExpert && (
+          <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50">
+            <div className="bg-white p-6 rounded-lg w-96">
+              <h2 className="text-2xl font-bold mb-4">{selectedExpert.name}</h2>
+              <p className="mb-4">{selectedExpert.role}</p>
+              <div className="w-24 h-24 mb-4">
+                <img
+                  src={selectedExpert.image}
+                  alt={selectedExpert.name}
+                  className="w-full h-full object-cover rounded-full border-4 border-green-500"
+                />
+              </div>
+              <p className="mb-4">{selectedExpert.description || 'Pas de description disponible.'}</p>
+              <button
+                onClick={handleCloseDescription}
+                className="bg-gray-500 text-white px-4 py-2 rounded-full"
+              >
+                Fermer
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-// Données des experts
+// Données des experts avec description
 const experts = [
   {
-    name: 'Thomas Walkar',
+    name: 'Yassine El Idrissi',
     role: 'Ingénieur en Énergies Renouvelables',
     linkedin: '#',
     twitter: '#',
     instagram: '#',
-    image: '/imagesper/p4.jpg',
-    progress: 90,
+    image: '/imagesper/2.jpg',
+    progress: 85,
+    description: 'Yassine El Idrissi est un ingénieur marocain spécialisé dans les énergies renouvelables, avec une expertise en énergie solaire et éolienne au Maroc.',
   },
   {
-    name: 'Mme. Clara Belleville',
-    role: 'Analyste en Efficacité Énergétique',
+    name: 'Mme. Salma Benjelloun',
+    role: 'Consultante en Transition Énergétique',
     linkedin: '#',
     twitter: '#',
     instagram: '#',
-    image: '/imagesper/p2.jpg',
-    progress: 40,
+    image: '/imagesper/pe1.jpeg',
+    progress: 70,
+    description: 'Salma Benjelloun est une consultante marocaine en transition énergétique, œuvrant pour des solutions durables dans les zones rurales du Maroc.',
   },
   {
     name: 'Dr. Rachid Benkacem',
@@ -106,35 +147,49 @@ const experts = [
     linkedin: '#',
     twitter: '#',
     instagram: '#',
-    image: '/imagesper/p3.jpg',
+    image: '/imagesper/per2.jpeg',
     progress: 50,
+    description: 'Dr. Rachid Benkacem est un expert marocain reconnu pour ses travaux sur les technologies solaires avancées et la gestion de projets énergétiques.',
   },
-
   {
     name: 'Fatima Zahra El Alaoui',
     role: 'Experte en Énergies Vertes',
     linkedin: '#',
     twitter: '#',
     instagram: '#',
-    image: '/imagesper/p5.jpg',
+    image: '/imagesper/per3.jpeg',
     progress: 60,
-  }, {
-    name: 'Dr. Emma Lefèvre',
-    role: 'Ingénieure en Énergies Renouvelables',
-    linkedin: '#',
-    twitter: '#',
-    instagram: '#',
-    image: '/imagesper/p20.jpg',
-    progress: 25,
+    description: 'Fatima Zahra El Alaoui est une experte marocaine en énergies vertes, développant des solutions durables pour améliorer la vie dans les villages reculés du Maroc.',
   },
   {
-    name: 'Jean Dupont',
-    role: 'Spécialiste en Biomasse',
+    name: 'Dr. Sofia Bakkali',
+    role: 'Chercheuse en Hydroélectricité',
     linkedin: '#',
     twitter: '#',
     instagram: '#',
-    image: '/imagesper/p6.jpg',
+    image: '/imagesper/per4.jpeg',
+    progress: 65,
+    description: 'Dr. Sofia Bakkali est une chercheuse marocaine travaillant sur des projets d’amélioration des barrages hydroélectriques pour une énergie propre au Maroc.',
+  },
+  {
+    name: 'Khalid Amrani',
+    role: 'Spécialiste en Biomasse Énergétique',
+    linkedin: '#',
+    twitter: '#',
+    instagram: '#',
+    image: '/imagesper/per5.jpeg',
     progress: 75,
+    description: 'Khalid Amrani est un spécialiste marocain en biomasse, transformant les déchets organiques en énergie pour les entreprises locales.',
+  },
+  {
+    name: 'Dr. Laila Toumi',
+    role: 'Analyste en Efficacité Énergétique',
+    linkedin: '#',
+    twitter: '#',
+    instagram: '#',
+    image: '/imagesper/per6.jpeg',
+    progress: 40,
+    description: 'Dr. Laila Toumi est une analyste marocaine en efficacité énergétique, collaborant sur des projets de bâtiments écologiques au Maroc.',
   },
   {
     name: 'Ahmed Taleb',
@@ -144,16 +199,9 @@ const experts = [
     instagram: '#',
     image: '/imagesper/p7.jpg',
     progress: 80,
-  },
-  {
-    name: 'Sofia Amrani',
-    role: 'Chercheuse en Hydroélectricité',
-    linkedin: '#',
-    twitter: '#',
-    instagram: '#',
-    image: '/imagesper/p13.jpg',
-    progress: 65,
+    description: 'Ahmed Taleb est un consultant marocain, conseillant des entreprises et des gouvernements sur les pratiques écologiques dans le contexte marocain.',
   },
 ];
+
 
 export default ExpertProfiles;

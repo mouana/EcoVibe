@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const ExpertSection = () => {
   const [randomImages, setRandomImages] = useState([]);
+  const [corruptedImages, setCorruptedImages] = useState([]);
 
   // Liste des images
   const images = [
@@ -17,58 +18,79 @@ const ExpertSection = () => {
     "/imagesper/p10.jpg",
     "/imagesper/p11.jpg",
     "/imagesper/p12.jpg",
-    "/imagesper/p19.jpg",
-    "/imagesper/p14.jpg",
-    "/imagesper/p15.jpg",
-    "/imagesper/p16.jpeg",
-    "/imagesper/p17.jpeg",
-    "/imagesper/p18.jpg",
-    "/imagesper/p19.jpg", "/imagesper/p10.jpg",
-    "/imagesper/p11.jpg",
-    "/imagesper/p12.jpg",
-    "/imagesper/p16.jepg",
-    "/imagesper/p14.jpg",
-    "/imagesper/p15.jpg",
-    "/imagesper/p16.jpeg",
-    "/imagesper/p17.jpeg",
-    "/imagesper/p18.jpg",
-    "/imagesper/p19.jpg", "/imagesper/p10.jpg",
-    "/imagesper/p11.jpg",
-    "/imagesper/p12.jpg",
-    "/imagesper/p1.jpg",
-    "/imagesper/p14.jpg",
-    "/imagesper/p15.jpg",
-    "/imagesper/p16.jpeg",
-    "/imagesper/p17.jpeg",
-    "/imagesper/p18.jpg",
-    "/imagesper/p19.jpg", "/imagesper/p10.jpg",
-    "/imagesper/p11.jpg",
-    "/imagesper/p12.jpg",
-    "/imagesper/p1.jpg",
-    "/imagesper/p14.jpg",
-    "/imagesper/p15.jpg",
-    "/imagesper/p16.jpeg",
-    "/imagesper/p17.jpeg",
-    "/imagesper/p18.jpg",
-    "/imagesper/p19.jpg",  "/imagesper/p5.jpg",
-    "/imagesper/p6.jpg",
-    "/imagesper/p7.jpg",
-    // ... autres images
+    "/imagesper/p13.jpg", 
+    "/imagesper/p15.jpg", 
+    "/imagesper/p14.jpg", 
+    "/imagesper/p16.jpeg", 
+    "/imagesper/p17.jpeg", 
+    "/imagesper/p18.jpg", 
+    "/imagesper/p20.jpg", 
+    "/imagesper/p21.jpg", 
+    "/imagesper/p22.jpeg", 
+    "/imagesper/p23.jpeg", 
+    "/imagesper/p24.jpg", 
+    "/imagesper/p25.jpg", 
+    "/imagesper/p26.jpg", 
+    "/imagesper/p27.jpg", 
+    "/imagesper/p28.jpeg", 
+    "/imagesper/p29.jpeg.jpeg",
+    "/imagesper/p30.jpeg",
+    "/imagesper/p31.jpeg", 
+    "/imagesper/p32.jpeg", 
+    "/imagesper/p33.jpeg", 
+    "/imagesper/p34.jpeg", 
+    "/imagesper/p35.jpeg", 
+    "/imagesper/p36.jpeg", 
+    "/imagesper/p37.jpeg", 
+    "/imagesper/p38.jpeg", 
+    "/imagesper/p38.jpg", 
+    "/imagesper/p39.jpg", 
+    "/imagesper/p40.jpeg", 
+    "/imagesper/p41.jpg", 
+    "/imagesper/p42.jpg", 
+    "/imagesper/p43.jpg", 
+    "/imagesper/p44.jpg", 
+    "/imagesper/p45.jpg", 
+    "/imagesper/p46.jpeg", 
+    "/imagesper/p46.jpg", 
+    "/imagesper/p47.jpg", 
+    "/imagesper/p48.jpg", 
+    "/imagesper/p49.jpg",
+    "/imagesper/p50.jpg", 
+    "/imagesper/p51.jpeg", 
+    "/imagesper/52.jpeg", 
+    "/imagesper/52.jpg", 
+    "/imagesper/p53.jpeg", 
+    "/imagesper/p53.jpg",
+    "/imagesper/p60.jpeg", 
+    "/imagesper/p61.jpeg", 
   ];
 
+  // Obtenir des images aléatoires
   const getRandomImages = () => {
-    const shuffled = [...images].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, Math.min(52, shuffled.length)); // Limiter à 52 ou moins selon le nombre d'images disponibles
+    // Filtrer les images corrompues
+    const validImages = images.filter((image) => !corruptedImages.includes(image));
+
+    const shuffled = [...validImages].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, Math.min(52, shuffled.length)); // Limiter à 52 ou moins
   };
 
   useEffect(() => {
+    // Charger les images aléatoires initialement
     setRandomImages(getRandomImages());
 
+    // Mettre à jour les images toutes les 3 secondes
     const interval = setInterval(() => {
       setRandomImages(getRandomImages());
     }, 3000);
+
     return () => clearInterval(interval);
-  }, []);
+  }, [corruptedImages]); // Recalculer les images si certaines sont marquées comme corrompues
+
+  // Gérer les images corrompues
+  const handleImageError = (image) => {
+    setCorruptedImages((prev) => [...new Set([...prev, image])]); // Ajouter à la liste des corrompues
+  };
 
   return (
     <div style={styles.appContainer}>
@@ -87,7 +109,7 @@ const ExpertSection = () => {
               src={image}
               alt={`Expert ${index + 1}`}
               style={styles.personImage}
-              onError={(e) => e.target.src = "/imagesper/p13.jpg"} // Image par défaut si l'image est manquante
+              onError={() => handleImageError(image)} // Appelle la fonction pour gérer les erreurs
             />
           </div>
         ))}
@@ -95,7 +117,6 @@ const ExpertSection = () => {
     </div>
   );
 };
-
 
 const styles = {
   appContainer: {
