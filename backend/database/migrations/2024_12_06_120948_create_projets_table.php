@@ -9,20 +9,21 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('projets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('utilisateurs');
             $table->foreignId('expert_id')->constrained('experts');
-            $table->enum('type',['solaire','éolien', 'hydraulique']);
+            $table->enum('type', ['solaire', 'éolien', 'hydro']);
             $table->string('location');
             $table->text('details');
-            $table->enum('status',['en cours', 'terminé']);
+            $table->string('image')->nullable();
+            $table->enum('status', ['en cours', 'terminé']);
             $table->timestamps();
-         
         });
     }
+
 
     /**
      * Reverse the migrations.

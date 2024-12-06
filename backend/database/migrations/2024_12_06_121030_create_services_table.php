@@ -9,22 +9,21 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('cartes', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->json('coordinates');
-            $table->string('image_path')->nullable(); 
+            $table->enum('type', ['solaire', 'éolien', 'hydro']);
+            $table->text('description');
+            $table->string('infographic')->nullable();
             $table->timestamps();
-            $table->foreignId('project_id')->constrained('projets');
         });
     }
-
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('cartes');
+        Schema::dropIfExists('services');
     }
 };

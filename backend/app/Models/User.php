@@ -2,41 +2,48 @@
 
 namespace App\Models;
 
+
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Model
+class User extends Authenticatable
 {
+    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
-    protected $fillable=['nom','email','password','role','phone','birthday'];
-
-    protected $hidden =['password','remembre_token'];
-
-    protected $cast =[
-        'email_verified_at'=>'datetime',
-         'role'=>'string',
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
     ];
 
-    
     /**
-     * Vérifie si l'utilisateur a un rôle spécifique.
+     * The attributes that should be hidden for serialization.
      *
-     * @param string $role
-     * @return bool
+     * @var array<int, string>
      */
-    public function hasRole(string $role): bool
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
     {
-        return $this->role === $role;
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
     }
-
-    public function simulations(){
-        return $this->hasMany(Simulation::class);
-    }
-    
-    public function projets(){
-        return $this->hasMany(Projet::class);
-    }
-
 }

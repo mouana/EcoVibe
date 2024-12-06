@@ -9,13 +9,35 @@ class Projet extends Model
 {
     use HasFactory;
 
-    protected $fillable=['user_id','expert_id','type','location','details','status'];
 
-    public function user(){
-        return $this->belongsTo(User::class);
+    protected $fillable = [
+        'user_id',
+        'expert_id',
+        'type',
+        'location',
+        'details',
+        'image',
+        'status',
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
+    // Relations
+    public function utilisateur()
+    {
+        return $this->belongsTo(Utilisateur::class);
     }
 
-    public function experts(){
+    public function expert()
+    {
         return $this->belongsTo(Expert::class);
+    }
+
+    public function cartes()
+    {
+        return $this->hasMany(Carte::class);
     }
 }

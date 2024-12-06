@@ -8,5 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     use HasFactory;
-    protected $fillable=['type','description','infographic'];
+
+
+    protected $fillable = [
+        'type',
+        'description',
+        'infographic',
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
 }
+
+

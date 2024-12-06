@@ -7,7 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Carte extends Model
 {
-    use HasFactory ;
+    use HasFactory;
 
-    protected $fillable =['project_id','coordinates'];
+    protected $fillable = [
+        'project_id',
+        'coordinates',
+    ];
+
+    protected $casts = [
+        'coordinates' => 'array',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
+    // Relations
+    public function projet()
+    {
+        return $this->belongsTo(Projet::class);
+    }
 }
+

@@ -9,19 +9,17 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('simulations', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->enum('type',['solaire','éolien','hydraulique']);
+            $table->foreignId('user_id')->constrained('utilisateurs');
+            $table->enum('type', ['solaire', 'éolien', 'hydro']);
             $table->json('input_data');
             $table->json('output_data');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
-
     /**
      * Reverse the migrations.
      */
