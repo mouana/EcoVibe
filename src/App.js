@@ -25,8 +25,6 @@ function App() {
       <Route path="Energydashboard" element={<EnergyDashboard />} />
       </Routes>
       </BrowserRouter>
-    
-
   );
 }
 

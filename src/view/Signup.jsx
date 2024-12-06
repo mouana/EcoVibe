@@ -1,39 +1,86 @@
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import UIkit from "uikit"; // Import UIkit
 
 function Signup() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate(); // For navigation after successful login
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-XSRF-TOKEN": document.cookie, // Utilisation du token CSRF
+        },
+        credentials: "include", // Nécessaire pour Sanctum
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.message || "Erreur de connexion");
+      }
+
+      const data = await response.json();
+      console.log("Connexion réussie :", data);
+
+      // Display a success message using UIkit
+      UIkit.notification({
+        message: "Connexion réussie !",
+        status: "success",
+        pos: "top-center",
+      });
+
+      // Redirect to home after successful login
+      setTimeout(() => {
+        navigate("/");
+      }, 2000); // Redirect after 2 seconds
+    } catch (err) {
+      // Display an error message using UIkit
+      UIkit.notification({
+        message: err.message || "Erreur de connexion",
+        status: "danger",
+        pos: "top-center",
+      });
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div
       className="container-fluid d-flex align-items-center justify-content-center bg-light"
-      style={{ height: "100vh" }} 
+      style={{ height: "100vh" }}
     >
-      <div
-        className="row w-75 shadow-lg rounded"
-        style={{ height: "100%" }} 
-      >
+      <div className="row w-75 shadow-lg rounded" style={{ height: "100%" }}>
         <div
           className="col-md-6 text-white d-flex flex-column justify-content-center align-items-center p-5"
-          style={{
-            backgroundColor: "#82D49D",
-            height: "100%",
-          }}
+          style={{ backgroundColor: "#82D49D", height: "100%" }}
         >
           <Swiper
-            modules={[ Pagination, Autoplay]}
-            
+            modules={[Pagination, Autoplay]}
             pagination={{ clickable: true }}
             autoplay={{ delay: 3000 }}
             loop={true}
             className="mb-4"
             style={{ width: "100%" }}
           >
-  
             <SwiperSlide>
               <img
                 src="./Simulateur_img/login2.png"
@@ -56,33 +103,30 @@ function Signup() {
               />
             </SwiperSlide>
           </Swiper>
-
           <h1 className="text-center fw-bold">Bienvenue sur EcoVibe !</h1>
           <p className="text-center mt-3">
             Découvrez des solutions énergétiques durables avec notre plateforme.
-            Simulez, gérez et partagez des projets d'énergie verte en temps réel.
           </p>
         </div>
         <div
           className="col-md-6 bg-white d-flex flex-column justify-content-center p-5"
-          style={{ height: "100%" }} 
+          style={{ height: "100%" }}
         >
           <h2 className="text-primary fw-bold text-center">Connexion</h2>
-          <p className="mb-4">
-            Vous n'avez pas de compte ?{" "}
-            
-            <Link  to="/inscription" ><a href="#register" className="text-primary">Créez un compte </a></Link>
-          </p>
-          <form>
+          {error && <div className="alert alert-danger">{error}</div>}
+          <form onSubmit={handleLogin}>
             <div className="mb-3">
-              <label htmlFor="username" className="form-label">
-                Nom d'utilisateur
+              <label htmlFor="email" className="form-label">
+                Email
               </label>
               <input
-                type="text"
-                id="username"
+                type="email"
+                id="email"
                 className="form-control"
-                placeholder="Entrez votre nom d'utilisateur"
+                placeholder="Entrez votre email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
             <div className="mb-3">
@@ -94,6 +138,9 @@ function Signup() {
                 id="password"
                 className="form-control"
                 placeholder="Entrez votre mot de passe"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
               />
             </div>
             <div className="d-flex justify-content-between align-items-center mb-3">
@@ -111,8 +158,12 @@ function Signup() {
                 Mot de passe oublié ?
               </a>
             </div>
-            <button type="submit" className="btn btn-primary w-100">
-              Se connecter
+            <button
+              type="submit"
+              className="btn btn-primary w-100"
+              disabled={loading}
+            >
+              {loading ? "Connexion..." : "Se connecter"}
             </button>
           </form>
         </div>
