@@ -8,6 +8,7 @@ import Expert from './view/Expert'
 import ProjctCard from './view/ProjctCard'
 import Service from './view/Service'
 import Apprendre from './view/Apprendre'
+import EnergyDashboard from './Components/profile/Dashboard'
 
 function App() {
   return (
@@ -18,9 +19,10 @@ function App() {
       <Route path="Signup" element={<Signup />} />
       <Route path="Inscription" element={<Inscrire />} />
       <Route path="Expert" element={<Expert />} />
-      <Route path="Card" element={<ProjctCard />} />
+      <Route path="cartes" element={<ProjctCard />} />
       <Route path="service" element={<Service />} />
       <Route path="Apprendre" element={<Apprendre />} />
+      <Route path="Energydashboard" element={<EnergyDashboard />} />
       </Routes>
       </BrowserRouter>
     
