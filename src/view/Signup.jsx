@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -6,58 +7,45 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link, useNavigate } from "react-router-dom";
-import UIkit from "uikit"; // Import UIkit
+import UIkit from "uikit";
 
 function Signup() {
+  const { setIsLoggedIn } = useContext(AuthContext); // For managing login state
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate(); // For navigation after successful login
+  const navigate = useNavigate(); // Navigation after successful login
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError("");
 
     try {
       const response = await fetch("http://127.0.0.1:8000/api/login", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-XSRF-TOKEN": document.cookie, // Utilisation du token CSRF
-        },
-        credentials: "include", // Nécessaire pour Sanctum
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        const data = await response.json();
+        // If the response is not successful, throw an error
         throw new Error(data.message || "Erreur de connexion");
       }
 
-      const data = await response.json();
-      console.log("Connexion réussie :", data);
+      // Store the token in localStorage
+      localStorage.setItem("token", data.token);
+      UIkit.notification({ message: "Connexion réussie !", status: "success" });
 
-      // Display a success message using UIkit
-      UIkit.notification({
-        message: "Connexion réussie !",
-        status: "success",
-        pos: "top-center",
-      });
+      // Update AuthContext state
+      setIsLoggedIn(true);
 
-      // Redirect to home after successful login
-      setTimeout(() => {
-        navigate("/");
-      }, 2000); // Redirect after 2 seconds
+      // Navigate to home after successful login
+      setTimeout(() => navigate("/"), 2000);
     } catch (err) {
-      // Display an error message using UIkit
-      UIkit.notification({
-        message: err.message || "Erreur de connexion",
-        status: "danger",
-        pos: "top-center",
-      });
-      setError(err.message);
+      // Display error notification
+      UIkit.notification({ message: err.message, status: "danger" });
     } finally {
       setLoading(false);
     }
@@ -113,7 +101,6 @@ function Signup() {
           style={{ height: "100%" }}
         >
           <h2 className="text-primary fw-bold text-center">Connexion</h2>
-          {error && <div className="alert alert-danger">{error}</div>}
           <form onSubmit={handleLogin}>
             <div className="mb-3">
               <label htmlFor="email" className="form-label">

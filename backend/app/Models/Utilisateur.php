@@ -1,22 +1,28 @@
 <?php
+
 namespace App\Models;
 
+use Illuminate\Foundation\Auth\User as Authenticatable; 
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-
-class Utilisateur extends Model
+class Utilisateur extends Authenticatable
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory;
+
     protected $table = 'utilisateurs';
 
     protected $fillable = [
         'name',
         'email',
         'password',
-        'phone',      
-        'birthday', 
-        'role',
+        'phone',
+        'birthday',
+    ];
+
+    protected $hidden = [
+        'password', 
+        'remember_token',
     ];
 
     protected $casts = [
@@ -35,4 +41,3 @@ class Utilisateur extends Model
         return $this->hasMany(Projet::class);
     }
 }
-

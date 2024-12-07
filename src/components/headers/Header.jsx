@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { FaGlobe, FaUserCircle, FaBars } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 const Header = () => {
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext); // Access login state and updater
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsLoggedIn(false); // Update context state
+    window.location.href = "/"; // Redirect to login page
   };
 
   return (
@@ -23,15 +31,28 @@ const Header = () => {
         </div>
         {/* Buttons */}
         <div className="absolute right-5 hidden md:flex gap-3">
-          <NavLink to="/signup">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded">
-              Devenir client
-            </button>
-          </NavLink>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded flex items-center gap-2">
-            <FaUserCircle size={15} />
-            Mon espace
-          </button>
+          {!isLoggedIn && (
+            <NavLink to="/signup">
+              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded">
+                Devenir client
+              </button>
+            </NavLink>
+          )}
+          {isLoggedIn && (
+            <>
+              <NavLink to="/profile">
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded">
+                  Mon espace
+                </button>
+              </NavLink>
+              <button
+                className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded"
+                onClick={handleLogout}
+              >
+                Déconnexion
+              </button>
+            </>
+          )}
         </div>
         {/* Burger Menu */}
         <div className="flex md:hidden text-2xl cursor-pointer" onClick={toggleMenu}>
@@ -45,9 +66,7 @@ const Header = () => {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              isActive
-                ? "text-blue-500 font-bold"
-                : "text-gray-800 hover:text-blue-500"
+              isActive ? "text-blue-500 font-bold" : "text-gray-800 hover:text-blue-500"
             }
           >
             Accueil
@@ -55,9 +74,7 @@ const Header = () => {
           <NavLink
             to="/Apprendre"
             className={({ isActive }) =>
-              isActive
-                ? "text-blue-500 font-bold"
-                : "text-gray-800 hover:text-blue-500"
+              isActive ? "text-blue-500 font-bold" : "text-gray-800 hover:text-blue-500"
             }
           >
             Apprendre
@@ -65,9 +82,7 @@ const Header = () => {
           <NavLink
             to="/simulateur"
             className={({ isActive }) =>
-              isActive
-                ? "text-blue-500 font-bold"
-                : "text-gray-800 hover:text-blue-500"
+              isActive ? "text-blue-500 font-bold" : "text-gray-800 hover:text-blue-500"
             }
           >
             Simulateur
@@ -75,9 +90,7 @@ const Header = () => {
           <NavLink
             to="/Expert"
             className={({ isActive }) =>
-              isActive
-                ? "text-blue-500 font-bold"
-                : "text-gray-800 hover:text-blue-500"
+              isActive ? "text-blue-500 font-bold" : "text-gray-800 hover:text-blue-500"
             }
           >
             Experts
@@ -85,9 +98,7 @@ const Header = () => {
           <NavLink
             to="/cartes"
             className={({ isActive }) =>
-              isActive
-                ? "text-blue-500 font-bold"
-                : "text-gray-800 hover:text-blue-500"
+              isActive ? "text-blue-500 font-bold" : "text-gray-800 hover:text-blue-500"
             }
           >
             cartes
@@ -95,9 +106,7 @@ const Header = () => {
           <NavLink
             to="/service"
             className={({ isActive }) =>
-              isActive
-                ? "text-blue-500 font-bold"
-                : "text-gray-800 hover:text-blue-500"
+              isActive ? "text-blue-500 font-bold" : "text-gray-800 hover:text-blue-500"
             }
           >
             Service
@@ -112,7 +121,7 @@ const Header = () => {
             Accueil
           </NavLink>
           <NavLink to="/Apprendre" className="text-gray-800" onClick={toggleMenu}>
-          Apprendre
+            Apprendre
           </NavLink>
           <NavLink to="/simulateur" className="text-gray-800" onClick={toggleMenu}>
             Simulateur
@@ -121,18 +130,32 @@ const Header = () => {
             Experts
           </NavLink>
           <NavLink to="/cartes" className="text-gray-800" onClick={toggleMenu}>
-          cartes
+            cartes
           </NavLink>
           <NavLink to="/service" className="text-gray-800" onClick={toggleMenu}>
             Service
           </NavLink>
-          <NavLink to="/signup" className="text-gray-800" onClick={toggleMenu}>
-            Devenir client
-          </NavLink>
-          <button className="flex items-center gap-2 text-gray-800" onClick={toggleMenu}>
-            <FaUserCircle />
-            Mon espace
-          </button>
+          {!isLoggedIn && (
+            <NavLink to="/signup" className="text-gray-800" onClick={toggleMenu}>
+              Devenir client
+            </NavLink>
+          )}
+          {isLoggedIn && (
+            <>
+              <NavLink to="/profile" className="text-gray-800" onClick={toggleMenu}>
+                Mon espace
+              </NavLink>
+              <button
+                className="text-gray-800"
+                onClick={() => {
+                  handleLogout();
+                  toggleMenu();
+                }}
+              >
+                Déconnexion
+              </button>
+            </>
+          )}
         </div>
       )}
     </div>
