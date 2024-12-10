@@ -1,0 +1,114 @@
+body {
+  font-family: 'Catamaran', sans-serif;
+}
+
+
+  /* Transition fluide pour afficher les détails */
+  .details-enter {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  
+  .details-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
+  }
+  
+  .details-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .details-exit-active {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
+  }
+  
+  /* Conteneur des détails avec un léger ombrage et centrage */
+  .details-card {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 1.5rem;
+    background-color: #e18d8d;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  }
+  
+  /* Carte avec ombrage et bords arrondis */
+  .card-body {
+    border-radius: 1.5rem;
+    background-color: #ffffff;
+  }
+  
+  /* Titre en noir */
+  .card-title {
+    color: #000000;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+  
+  /* Boîtes de détail avec des effets d'ombre et de levée au survol */
+  .detail-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .detail-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  
+  /* Bouton avec effet de hover */
+  button {
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+
+  
+  .container {
+  padding: 20px;
+}
+
+.card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  height: 250px;
+  object-fit: cover;
+}
+
+.carousel-item {
+  padding: 20px;
+}
+
+
+
+  /* Responsive design pour petites tailles d'écran */
+  @media (max-width: 768px) {
+    .container {
+      padding: 1.5rem;
+    }
+  
+    .detail-box {
+      margin-bottom: 1rem;
+    }
+  
+    .details-card {
+      padding: 1.5rem;
+    }
+  }
+  
