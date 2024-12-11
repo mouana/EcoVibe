@@ -17,7 +17,6 @@ function Inscrire() {
     confirmPassword: "",
     phone: "",
     birthday: "",
-    role: "",
   });
   const [loading, setLoading] = useState(false);
 
@@ -87,12 +86,6 @@ function Inscrire() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.phone || !formData.birthday || !formData.role) {
-      UIkit.notification("Tous les champs sont obligatoires.", {
-        status: "danger",
-      });
-      return;
-    }
 
     if (!phoneRegex.test(formData.phone)) {
       UIkit.notification(
@@ -114,7 +107,7 @@ function Inscrire() {
         password_confirmation: formData.confirmPassword,
         phone: formData.phone,
         birthday: formData.birthday,
-        role: formData.role,
+        
       });
 
       UIkit.notification("Inscription réussie !", { status: "success" });
@@ -125,7 +118,6 @@ function Inscrire() {
         confirmPassword: "",
         phone: "",
         birthday: "",
-        role: "",
       });
       setStep(1);
     } catch (error) {
@@ -356,26 +348,7 @@ function Inscrire() {
                     max={getMaxDate()}
                   />
                 </div>
-                <div className="mb-4">
-                  <label
-                    htmlFor="role"
-                    className="form-label"
-                    style={{ fontWeight: "bold" }}
-                  >
-                    Rôle
-                  </label>
-                  <select
-                    id="role"
-                    name="role"
-                    className="form-select rounded-pill"
-                    value={formData.role}
-                    onChange={handleChange}
-                  >
-                    <option value="">Choisir un rôle</option>
-                    <option value="client">Client</option>
-                    <option value="expert">Expert</option>
-                  </select>
-                </div>
+                
                 <div className="d-flex justify-content-center mt-4 gap-1">
                   <button
                     type="button"

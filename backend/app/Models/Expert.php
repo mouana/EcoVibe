@@ -9,13 +9,15 @@ class Expert extends Model
 {
     use HasFactory;
 
-
+protected $table = "experts";
     protected $fillable = [
-        'user_id',
         'specialty',
         'biography',
         'reviews',
         'image',
+        'phone', 
+        'email',
+        'NometPrenom'
     ];
 
     protected $casts = [
@@ -26,12 +28,12 @@ class Expert extends Model
     // Relations
     public function projets()
     {
-        return $this->hasMany(Projet::class);
+        return $this->hasMany(Projet::class,'expert_id');
     }
 
-    public function utilisateur()
-    {
-        return $this->belongsTo(Utilisateur::class);
-    }
+    public function utilisateurs()
+{
+    return $this->belongsToMany(Utilisateur::class, 'expert_user', 'expert_id', 'user_id');
 }
 
+}

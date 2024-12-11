@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import { FaGlobe, FaUserCircle, FaBars } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../../context/AuthContext";
 
 const Header = () => {
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext); // Access login state and updater
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext); 
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -14,7 +14,7 @@ const Header = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsLoggedIn(false); // Update context state
-    window.location.href = "/"; // Redirect to login page
+    window.location.href = "/";
   };
 
   return (

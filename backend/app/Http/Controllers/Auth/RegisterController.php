@@ -26,7 +26,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'phone' => 'required|string|max:15',
             'birthday' => 'required|date',
-            'role' => ['required', Rule::in(['client', 'expert', 'admin'])],
+            // 'role' => ['required', Rule::in(['client', 'expert', 'admin'])],
         ]);
 
         if ($validator->fails()) {
@@ -44,7 +44,7 @@ class RegisterController extends Controller
                 'password' => Hash::make($request->password),
                 'phone' => $request->phone,
                 'birthday' => $request->birthday,
-                'role' => $request->role,
+                'role' => 'client',
             ]);
 
             return response()->json([

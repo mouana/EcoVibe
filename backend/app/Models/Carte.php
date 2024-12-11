@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Carte extends Model
 {
     use HasFactory;
+    protected $table = 'cartes';
 
     protected $fillable = [
         'project_id',
@@ -23,7 +24,7 @@ class Carte extends Model
     // Relations
     public function projet()
     {
-        return $this->belongsTo(Projet::class);
+        return $this->belongsTo(Projet::class,'project_id');
     }
+  
 }
-

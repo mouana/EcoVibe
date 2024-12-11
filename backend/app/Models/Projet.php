@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Projet extends Model
 {
     use HasFactory;
-
-
+    protected $table = 'projets';
     protected $fillable = [
         'user_id',
         'expert_id',
@@ -28,16 +27,16 @@ class Projet extends Model
     // Relations
     public function utilisateur()
     {
-        return $this->belongsTo(Utilisateur::class);
+        return $this->belongsTo(Utilisateur::class,'user_id');
     }
 
     public function expert()
     {
-        return $this->belongsTo(Expert::class);
+        return $this->belongsTo(Expert::class , 'expert_id');
     }
 
     public function cartes()
     {
-        return $this->hasMany(Carte::class);
+        return $this->hasMany(Carte::class,'project_id');
     }
 }

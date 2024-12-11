@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Expert;
 use App\Models\Utilisateur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,16 +12,20 @@ use Illuminate\Support\Facades\Hash;
 
 class UtilisateurController extends Controller
 {
-    public function show()
-{
-    $user = Auth::user();
-
-    if (!$user) {
-        return response()->json(['message' => 'Unauthenticated.'], 401);
+    public function getAllUsers()
+    {
+        // Fetch and return all users
+        $users = Utilisateur::all();
+        return response()->json($users);
     }
 
-    return response()->json($user);
-}
+    public function showUser($id)
+    {
+        // Show a specific user by ID
+        $user = Utilisateur::findOrFail($id);
+        return response()->json($user);
+    }
+
 
     // Update user information
 
@@ -67,7 +72,8 @@ class UtilisateurController extends Controller
     }
     
 
-
+    
+    
     // Delete user account
     public function destroy()
     {

@@ -11,6 +11,7 @@ class Utilisateur extends Authenticatable
     use HasApiTokens, HasFactory;
 
     protected $table = 'utilisateurs';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'name',
@@ -40,4 +41,11 @@ class Utilisateur extends Authenticatable
     {
         return $this->hasMany(Projet::class);
     }
+    public function experts()
+{
+    return $this->belongsToMany(User::class, 'expert_user', 'expert_id', 'user_id');
+}
+
+  
+
 }

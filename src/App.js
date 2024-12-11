@@ -1,18 +1,24 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext"; // Import AuthProvider
-import Home from "./view/Home";
-import Simulateur from "./view/Simulateur";
-import Signup from "./view/Signup";
-import Inscrire from "./view/Inscription";
-import Expert from "./view/Expert";
-import ProjectCard from "./view/ProjctCard";
-import Service from "./view/Service";
-import Apprendre from "./view/Apprendre";
-import ProfileContainer from "./view/Profile"
-import EnergyDashboard from "./Components/profile/Dashboard";
-
-
+import Home from "./view/Platform/Home";
+import Simulateur from "./view/Platform/Simulateur";
+import Signup from "./view/Platform/Signup";
+import Inscrire from "./view/Platform/Inscription";
+import Expert from "./view/Platform/Expert";
+import ProjectCard from "./view/Platform/ProjctCard";
+import Service from "./view/Platform/Service";
+import Apprendre from "./view/Platform/Apprendre";
+import ProfileContainer from "./view/Platform/Profile";
+import EnergyDashboard from "./Components/Platform/profile/Dashboard";
+import Admin from "./view/Admin/Admin";
+import ExpertsList from './Components/Admin/ExpertsList';
+import ProjectsList from './Components/Admin/ProjectsList.jsx'
+import UserList from './Components/Admin/UserList.jsx'
+import ExpertDetails from './Components/Admin/ExpertDetails.jsx'
+import Login from './view/Admin/Login.jsx'
+import ProjectDetails from './Components/Admin/ProjetDetails.jsx'
+import AddUser from './Components/Admin/AddUser.jsx'
 // Mock authentication check (replace with your actual logic)
 const isAuthenticated = () => {
   return localStorage.getItem("authToken") !== null; // Example logic
@@ -25,7 +31,8 @@ const ProtectedRoute = ({ element }) => {
 
 function App() {
   return (
-    <AuthProvider> {/* Wrap the app in AuthProvider */}
+    <AuthProvider>
+      {/* Wrap the app in AuthProvider */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -36,12 +43,18 @@ function App() {
           <Route path="/cartes" element={<ProjectCard />} />
           <Route path="/service" element={<Service />} />
           <Route path="/apprendre" element={<Apprendre />} />
-          <Route
-            path="/energy-dashboard"
-            element={<ProtectedRoute element={<EnergyDashboard />} />}
-          />
-          <Route path="/profile"
-            element={<ProtectedRoute element={<ProfileContainer />} />} />
+          <Route path="/energy-dashboard"element={<ProtectedRoute element={<EnergyDashboard />} />}/>
+          <Route path="/profile" element={<ProfileContainer />} />
+                    {/* Admin Routes */}
+          <Route path="/admin" element={<Login />} />
+          <Route path="/Dashboard" element={<Admin />} />
+          <Route path="/expertsList" element={<ExpertsList />} />
+          <Route  path="/experts/:expertId" element={<ExpertDetails />} />
+          <Route  path="/projects/:projectId" element={<ProjectDetails />} />
+          <Route  path="/AddUser" element={<AddUser />} />
+          {/* <Route path="/projectsList" element={<ProjectsList />} />
+          <Route path="/userList" element={<UserList />} /> */}
+
         </Routes>
       </BrowserRouter>
     </AuthProvider>
