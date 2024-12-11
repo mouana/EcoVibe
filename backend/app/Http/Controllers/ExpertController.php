@@ -104,6 +104,7 @@ class ExpertController extends Controller
         // Validate the request data
         $validatedData = $request->validate([
             'NometPrenom' => 'required|string|max:50',
+            'user_id' => 'sometimes|exists:utilisateurs,id',
             'specialty' => 'sometimes|string|max:255',
             'biography' => 'nullable|string',
             'reviews' => 'nullable|integer|min:0',

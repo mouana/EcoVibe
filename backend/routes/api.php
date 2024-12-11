@@ -53,9 +53,9 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 });
 Route::get('/experts/{id}', [ExpertUserController::class, 'show']);
+    Route::get('/admin/showUser{id}', [AdminsController::class, 'showUser']); 
 Route::get('/admin/experts', [ExpertController::class, 'index']);  
 Route::get('/projet', [ProjetController::class, 'index'])->name('projet.index');
-Route::get('/admin/showUser{id}', [AdminsController::class, 'showUser']); 
 Route::get('/cartes', [CarteController::class, 'index'])->name('cartes.index');
 Route::get('/expert', [ExpertController::class, 'index'])->name('expert.index');
 Route::get('/admin/experts/{id}', [ExpertController::class, 'show']); 
