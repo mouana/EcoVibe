@@ -11,18 +11,7 @@ use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DemandeController;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
-Route::post('register', [RegisterController::class, 'register']);
 
-Route::post('/login', [LoginController::class, 'login'])->name('login');
-// Route::post('/logout', [LoginController::class, 'logout']);
-Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/utilisateur', [UtilisateurController::class, 'show'])->name('utilisateur.show');
-    Route::put('/utilisateur', [UtilisateurController::class, 'update'])->name('utilisateur.update');
-    Route::delete('/utilisateur', [UtilisateurController::class, 'destroy'])->name('utilisateur.destroy');
-});
 //formulaire simulatiom
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/simulations', [SimulationController::class, 'store']);
