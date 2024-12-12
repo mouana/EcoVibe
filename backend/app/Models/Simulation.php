@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Utilisateur;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Simulation extends Model
 {
     use HasFactory;
-
 
 
     protected $fillable = [
@@ -28,7 +28,33 @@ class Simulation extends Model
     // Relations
     public function utilisateur()
     {
-        return $this->belongsTo(Utilisateur::class);
 
+        return $this->belongsTo(Utilisateur::class, 'user_id');
+    }
+
+    // Méthodes pour les calculs
+    public static function calculateOutput(array $input): array
+    {
+        $efficiency = match ($input['energyType']) {
+            'solaire' => 0.2,
+            'éolien' => 0.35,
+            'hydro' => 0.5,
+            default => 0.2,
+        };
+
+        $annualProduction = $input['installationSize'] * $efficiency * 365;
+        $energyPrice = 1.5; // Prix moyen en Dh/kWh
+        $annualRevenue = $annualProduction * $energyPrice;
+
+        $improvementSuggestion = null;
+        if ($input['energyType'] === 'solaire' && $input['budget'] < 5000) {
+            $improvementSuggestion = "Augmentez votre budget pour intégrer des panneaux solaires de meilleure qualité.";
+        }
+
+        return [
+            'annualProduction' => $annualProduction,
+            'annualRevenue' => $annualRevenue,
+            'improvementSuggestion' => $improvementSuggestion,
+        ];
     }
 }

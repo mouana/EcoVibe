@@ -5,11 +5,17 @@ use App\Http\Middleware\IsAdmin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CarteController;
+use App\Http\Controllers\DevisController;
 use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\ExpertController;
+
 use App\Http\Controllers\ProjetController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DemandeController;
+use App\Http\Controllers\PricingController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ExpertUserController;
+use App\Http\Controllers\SimulationController;
 use App\Http\Controllers\UtilisateurController;
 use App\Http\Controllers\Auth\RegisterController;
 
@@ -59,3 +65,18 @@ Route::get('/projet', [ProjetController::class, 'index'])->name('projet.index');
 Route::get('/cartes', [CarteController::class, 'index'])->name('cartes.index');
 Route::get('/expert', [ExpertController::class, 'index'])->name('expert.index');
 Route::get('/admin/experts/{id}', [ExpertController::class, 'show']); 
+
+
+//formulaire simulatiom
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/simulations', [SimulationController::class, 'store']);
+    Route::get('/simulations', [SimulationController::class, 'index']); // Si besoin pour lister
+});
+//Devis
+Route::middleware('auth:sanctum')->get('/devis', [DevisController::class, 'index']);
+//service
+Route::get('/services', [PricingController::class, 'index']);
+//Contacter-nous
+Route::post('/contact', [ContactController::class, 'store']);
+//Demande
+Route::middleware('auth:sanctum')->post('/demandes', [DemandeController::class, 'store']);

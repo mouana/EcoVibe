@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+
 class Utilisateur extends Authenticatable
 {
     use HasApiTokens, HasFactory;
@@ -20,6 +21,8 @@ class Utilisateur extends Authenticatable
         'phone',
         'birthday',
     ];
+
+
 
     protected $hidden = [
         'password', 
@@ -47,5 +50,11 @@ class Utilisateur extends Authenticatable
 }
 
   
+
+
+    public function demandes()
+{
+    return $this->hasMany(Demande::class);
+}
 
 }

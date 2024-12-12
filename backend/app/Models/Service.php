@@ -10,16 +10,19 @@ class Service extends Model
     use HasFactory;
 
 
-    protected $fillable = [
-        'type',
-        'description',
-        'infographic',
-    ];
+
+    protected $fillable = ['type', 'description', 'infographic', 'price'];
+
 
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
+
+
+    public function demandes()
+{
+    return $this->hasMany(Demande::class);
 }
 
-
+}
