@@ -1,8 +1,49 @@
-import React from 'react';
 import 'uikit/dist/css/uikit.min.css';
 import { Link } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from '../../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const SectionSe = () => {
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const { isLoggedIn } = useContext(AuthContext); // Check if the user is logged in
+  const navigate = useNavigate(); // Hook for navigation
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!isLoggedIn) {
+      navigate('/signup'); // Redirect to signup if not logged in
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/api/contact', {
+        full_name: fullName,
+        email: email,
+        message: message,
+      });
+
+      toast.success(response.data.message);
+
+      setFullName('');
+      setEmail('');
+      setMessage('');
+    } catch (error) {
+      toast.error("Erreur lors de l'envoi du message");
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
     <div className="flex flex-col md:flex-row items-center justify-between p-6 md:p-10 bg-gray-100 space-y-8 md:space-y-0">
       {/* Contact Text */}
@@ -24,46 +65,55 @@ const SectionSe = () => {
       {/*  Contact Form */}
       <div className="w-full md:w-1/3 p-6 md:p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl md:text-3xl font-bold mb-6">Nous Contacter</h2>
-        <form className="space-y-4">
-          <div>
-            <label className="block text-gray-700">Nom</label>
-            <input
-              type="text"
-              placeholder="Entrez votre nom"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Prénom</label>
-            <input
-              type="text"
-              placeholder="Entrez votre prénom"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Email</label>
-            <input
-              type="email"
-              placeholder="Entrez votre email"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Message</label>
-            <textarea
-              rows="4"
-              placeholder="Votre message"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300"
-          >
-            Envoyer
-          </button>
-        </form>
+        <form onSubmit={handleSubmit} className="space-y-6">
+        <div>
+          <label className="block text-gray-700" htmlFor="fullName">
+            Nom complet
+          </label>
+          <input
+            type="text"
+            id="fullName"
+            placeholder="Entrez votre nom complet"
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2DA884]"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+          />
+        </div>
+        <div>
+          <label className="block text-gray-700" htmlFor="email">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Entrez votre email"
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2DA884]"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div>
+          <label className="block text-gray-700" htmlFor="message">
+            Message
+          </label>
+          <textarea
+            id="message"
+            rows="4"
+            placeholder="Votre message"
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2DA884]"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          className="w-full bg-[#2DA884] text-white py-2 rounded-lg hover:bg-[#249a73] transition duration-300"
+          disabled={isLoading}
+        >
+          {isLoading ? 'Envoi en cours...' : 'Envoyer'}
+        </button>
+      </form>
+      <ToastContainer />
       </div>
 
       {/*Map */}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom"; 
 import AddProject from "./AddProject";
 import "uikit/dist/css/uikit.min.css";
 import UIkit from "uikit";
@@ -13,7 +13,9 @@ const ExpertDetails = () => {
   const [expert, setExpert] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [deleting, setDeleting] = useState(false); // Track deletion state
   const token = localStorage.getItem("token");
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     if (expertId) {
@@ -22,6 +24,7 @@ const ExpertDetails = () => {
   }, [expertId]);
 
   const fetchExpertDetails = async () => {
+    setLoading(true);
     try {
       const response = await axios.get(
         `http://127.0.0.1:8000/api/experts/${expertId}`,
@@ -31,7 +34,6 @@ const ExpertDetails = () => {
           },
         }
       );
-
       if (response.data) {
         setExpert(response.data);
       } else {
@@ -45,14 +47,61 @@ const ExpertDetails = () => {
     }
   };
 
+  // Function to handle deletion of an expert
+  // Function to handle deletion of an expert
+const handleDeleteExpert = async () => {
+  if (!window.confirm("Êtes-vous sûr de vouloir supprimer cet expert ?")) {
+    return;
+  }
+
+  setDeleting(true); // Start deletion process
+  try {
+    const response = await axios.delete(
+      `http://127.0.0.1:8000/api/experts/${expertId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (response.status === 200) {
+      UIkit.notification({
+        message: "Expert supprimé avec succès.",
+        status: "success",
+        pos: "top-right",
+        timeout: 3000,
+      });
+      navigate("/Dashboard"); // Navigate to /Dashboard after deletion
+    } else {
+      UIkit.notification({
+        message: "Échec de la suppression de l'expert.",
+        status: "warning",
+        pos: "top-right",
+        timeout: 3000,
+      });
+    }
+  } catch (error) {
+    console.error("Error deleting expert:", error);
+    UIkit.notification({
+      message: "Une erreur s'est produite lors de la suppression de l'expert.",
+      status: "danger",
+      pos: "top-right",
+      timeout: 3000,
+    });
+  } finally {
+    setDeleting(false); // End deletion process
+  }
+};
+
+
+  // Function to handle deletion of a project
   const handleDeleteProject = async (projectId) => {
+    setDeleting(true); // Start deletion process for project
     try {
       const response = await axios.delete(
         `http://127.0.0.1:8000/api/projects/${projectId}`,
         {
-          data: {
-            id: projectId,
-          },
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -66,6 +115,7 @@ const ExpertDetails = () => {
           pos: "top-right",
           timeout: 3000,
         });
+        // Update the expert state after project deletion
         setExpert((prevExpert) => ({
           ...prevExpert,
           projets: prevExpert.projets.filter((p) => p.id !== projectId),
@@ -79,32 +129,20 @@ const ExpertDetails = () => {
         });
       }
     } catch (error) {
-      console.error("Error removing project:", error);
+      console.error("Error deleting project:", error);
       UIkit.notification({
         message: "Une erreur s'est produite lors de la suppression du projet.",
         status: "danger",
         pos: "top-right",
         timeout: 3000,
       });
+    } finally {
+      setDeleting(false); // End deletion process for project
     }
   };
 
-  if (loading) {
-    return <div className="uk-text-center uk-margin-large">Chargement des détails de l'expert...</div>;
-  }
-
-  if (error) {
-    return <div className="uk-text-center uk-text-danger uk-margin-large">{error}</div>;
-  }
-
-  if (!expert) {
-    return <div className="uk-text-center uk-margin-large">Expert introuvable</div>;
-  }
-
-  return (
-    <div className="uk-container uk-margin-large-top">
-      <h2 className="uk-heading-line uk-text-center"><span>Détails de l'Expert</span></h2>
-
+  const renderExpertDetails = () => (
+    <div>
       <div className="uk-card uk-card-default uk-card-hover uk-grid-collapse uk-child-width-1-2@s uk-margin" data-uk-grid>
         <div className="uk-card-media-left uk-cover-container">
           <img
@@ -113,14 +151,14 @@ const ExpertDetails = () => {
                 ? `http://127.0.0.1:8000/storage/${expert.image}`
                 : "https://via.placeholder.com/150"
             }
-            alt={expert.NometPrenom}
+            alt={expert.Nom}
             className="uk-border-circle"
             style={{ maxWidth: "200px", objectFit: "cover", margin: "20px auto" }}
           />
         </div>
         <div>
           <div className="uk-card-body">
-            <h3>{expert.NometPrenom}</h3>
+            <h3>{expert.Nom}</h3>
             <p><strong>Email :</strong> {expert.email}</p>
             <p><strong>Spécialité :</strong> {expert.specialty}</p>
             <p><strong>Téléphone :</strong> {expert.phone}</p>
@@ -170,8 +208,37 @@ const ExpertDetails = () => {
       <div className="uk-margin-large-top mb-4">
         <AddProject />
       </div>
+
+      <div className="uk-margin-top">
+        <button
+          onClick={handleDeleteExpert}
+          className="uk-button uk-button-danger uk-width-expand"
+          disabled={deleting} // Disable while deleting
+        >
+          {deleting ? "Suppression en cours..." : "Supprimer l'expert"}
+        </button>
+      </div>
     </div>
   );
+
+  if (loading) {
+    return (
+      <div className="uk-text-center uk-margin-large">
+        <div data-uk-spinner="ratio: 2" className="uk-margin-medium"></div>
+        Chargement des détails de l'expert...
+      </div>
+    );
+  }
+
+  if (error) {
+    return <div className="uk-text-center uk-text-danger uk-margin-large">{error}</div>;
+  }
+
+  if (!expert) {
+    return <div className="uk-text-center uk-text-warning uk-margin-large">Aucun expert trouvé.</div>;
+  }
+
+  return renderExpertDetails();
 };
 
 export default ExpertDetails;

@@ -2,10 +2,8 @@
 
 namespace App\Providers;
 
-<<<<<<< HEAD
 use Illuminate\Support\Facades\Route;
-=======
->>>>>>> 95f62df1a949582096d83a440d6811d047573724
+
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,14 +21,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-<<<<<<< HEAD
         Route::middlewareGroup('admin', [
             \App\Http\Middleware\IsAdmin::class,
         ]);
     }
 }
-=======
-        //
-    }
-}
->>>>>>> 95f62df1a949582096d83a440d6811d047573724

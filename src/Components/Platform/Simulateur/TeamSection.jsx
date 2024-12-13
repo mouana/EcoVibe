@@ -6,43 +6,44 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { BiEnvelope, BiWorld } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
+
 
 const TeamSection = () => {
+  
+  const navigate = useNavigate();
+
+  const handleContactClick = () => {
+    navigate("/service#contact-section");
+  };
+
   const experts = [
     {
       name: "Dr. Amina El Fassi",
       role: "Spécialiste en Énergie Solaire",
-      email: "amina.elfassi@example.com",
-      linkedin: "linkedin.com/in/aminaelfassi",
       img: "./Simulateur_img/ex2.jpeg",
     },
     {
       name: "Hassan Benali",
       role: "Consultant en Énergie Éolienne",
-      email: "hassan.benali@example.com",
-      linkedin: "linkedin.com/in/hassanbenali",
       img: "./Simulateur_img/ex3.jpeg",
     },
     {
         name: "Youssef Idrissi",
         role: "Expert en Transition Énergétique",
-        email: "youssef.idrissi@example.com",
-        linkedin: "linkedin.com/in/youssefidrissi",
+       
         img: "./Simulateur_img/ex1.jpeg",
       },
     {
       name: "Fatima Zahra Chami",
       role: "Ingénieure en Énergie Hydraulique",
-      email: "fatimaz.chami@example.com",
-      linkedin: "linkedin.com/in/fatimazchami",
+    
       img: "./Simulateur_img/ex4.jpeg",
     },
 
     {
       name: "Karim Khattabi",
       role: "Chercheuse en Énergies Renouvelables",
-      email: "karim.khattabi@example.com",
-      linkedin: "linkedin.com/in/karimkhattabi",
       img: "./Simulateur_img/ex5.jpeg",
     },
   ];
@@ -55,13 +56,13 @@ const TeamSection = () => {
       </h2>
       <div className="container">
         <Swiper
-          modules={[Navigation, Pagination, Autoplay]} // Déclarez les modules ici
+          modules={[Navigation, Pagination, Autoplay]} 
           slidesPerView={1}
           spaceBetween={30}
           pagination={{ clickable: true }}
           autoplay={{
-            delay: 3000, // Temps avant le passage au slide suivant (en millisecondes)
-            disableOnInteraction: false, // Continue l'autoplay même après interaction
+            delay: 3000, 
+            disableOnInteraction: false, 
           }}
           breakpoints={{
             640: { slidesPerView: 1 },
@@ -83,30 +84,16 @@ const TeamSection = () => {
                 <div className="card-body">
                   <h5 className="card-title">{expert.name}</h5>
                   <p className="text-primary mb-1">{expert.role}</p>
-                  <p className="d-flex align-items-center justify-content-center mb-1">
-                    <BiEnvelope className="text-primary me-2" size={20} />{" "}
-                    {expert.email}
-                  </p>
-                  <p className="d-flex align-items-center justify-content-center">
-                    <BiWorld className="text-primary me-2" size={20} />{" "}
-                    <a
-                      href={`https://${expert.linkedin}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-decoration-none"
-                    >
-                      LinkedIn
-                    </a>
-                  </p>
+               
+                 
                 </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
 
-        {/* Bouton Contactez-Nous */}
         <div className="mt-4">
-          <button className="btn btn-primary">Contactez-Nous</button>
+          <button className="btn btn-primary" onClick={handleContactClick} >Contactez-Nous</button>
         </div>
       </div>
     </section>

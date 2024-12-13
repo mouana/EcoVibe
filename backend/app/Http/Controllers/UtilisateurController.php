@@ -25,6 +25,20 @@ class UtilisateurController extends Controller
         $user = Utilisateur::findOrFail($id);
         return response()->json($user);
     }
+    public function show()
+{
+    // Get the authenticated user
+    $user = Auth::user();
+
+    // Check if the user is authenticated
+    if (!$user) {
+        return response()->json(['message' => 'Unauthenticated.'], 401);
+    }
+
+    // Return the authenticated user's information
+    return response()->json($user);
+}
+
 
 
     // Update user information

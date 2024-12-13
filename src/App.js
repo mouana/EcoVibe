@@ -19,9 +19,11 @@ import ExpertDetails from './Components/Admin/ExpertDetails.jsx'
 import Login from './view/Admin/Login.jsx'
 import ProjectDetails from './Components/Admin/ProjetDetails.jsx'
 import AddUser from './Components/Admin/AddUser.jsx'
+import Devis from './Components/Platform/Simulateur/Devis.jsx'
+import ExpertProfile from './Components/Admin/ExpertProfile.jsx'
 // Mock authentication check (replace with your actual logic)
 const isAuthenticated = () => {
-  return localStorage.getItem("authToken") !== null; // Example logic
+  return localStorage.getItem("authToken") !== null; 
 };
 
 // Protected Route Wrapper
@@ -45,6 +47,7 @@ function App() {
           <Route path="/apprendre" element={<Apprendre />} />
           <Route path="/energy-dashboard"element={<ProtectedRoute element={<EnergyDashboard />} />}/>
           <Route path="/profile" element={<ProfileContainer />} />
+          <Route path="/devis" element={<Devis />} />
                     {/* Admin Routes */}
           <Route path="/admin" element={<Login />} />
           <Route path="/Dashboard" element={<Admin />} />
@@ -52,6 +55,7 @@ function App() {
           <Route  path="/experts/:expertId" element={<ExpertDetails />} />
           <Route  path="/projects/:projectId" element={<ProjectDetails />} />
           <Route  path="/AddUser" element={<AddUser />} />
+          <Route path="/expertProfile" element={<ExpertProfile />} />
           {/* <Route path="/projectsList" element={<ProjectsList />} />
           <Route path="/userList" element={<UserList />} /> */}
 

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="bg-gradient-to-r from-green-600 to-blue-500 text-white">
@@ -13,10 +13,12 @@ const Footer = () => {
         </div>
         <div className="mt-4 md:mt-0 flex gap-4">
           <button className="bg-blue-800 text-white px-6 py-2 rounded hover:bg-blue-900">
-            Commencer
+          <Link className="text-white text-decoration-none " to ="/simulateur">Commencer</Link>
+
           </button>
           <button className="bg-green-500 text-black px-6 py-2 rounded hover:bg-green-600">
-            Contactez-nous
+            <Link className="text-white text-decoration-none " to ="/service"> Contactez-nous</Link>
+
           </button>
         </div>
       </div>

@@ -4,33 +4,27 @@ import { FaComment, FaEye, FaClock } from 'react-icons/fa';
 const articles = [
   {
     image: '/service/img5.png',
-    category: 'Tips',
-    title: 'Choosing the Right Plants for Your Climate Zone',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus hendrerit suscipit egestas...',
-    fullDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus hendrerit suscipit egestas. Proin fermentum, quam et euismod cursus, ligula ipsum laoreet arcu, vitae congue sapien ligula non odio. Fusce vitae...',
-    comments: 10,
-    views: '10K',
-    time: '5 min ago',
+    category: 'Conseils',
+    title: 'Choisir les bonnes plantes pour votre zone climatique',
+    description: 'Le choix des plantes adaptées à votre zone climatique est essentiel pour garantir un jardin durable et résistant. Découvrez comment choisir les meilleures plantes pour votre région.',
+    fullDescription: 'Lorsque vous aménagez votre jardin, il est crucial de sélectionner des plantes qui prospèrent dans les conditions climatiques locales. En tenant compte des températures, de l’humidité et du type de sol, vous pouvez créer un jardin florissant tout au long de l’année. Cet article vous guide à travers les différentes étapes pour choisir des plantes adaptées à votre zone climatique, garantissant ainsi une croissance saine et une faible consommation d’eau.',
+   
   },
   {
     image: '/service/img6.png',
-    category: 'Insight',
-    title: 'How to Create a Low Maintenance Landscape',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus hendrerit suscipit egestas...',
-    fullDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus hendrerit suscipit egestas. Sed euismod felis non turpis tincidunt interdum...',
-    comments: 50,
-    views: '15K',
-    time: '7 min ago',
+    category: 'Conseils',
+    title: 'Comment créer un paysage à faible entretien',
+    description: 'Créer un paysage à faible entretien ne signifie pas sacrifier l’esthétique. Découvrez des astuces simples pour aménager un jardin magnifique qui demande peu de soins.',
+    fullDescription: 'Un paysage à faible entretien peut être aussi beau que fonctionnel. Il suffit de choisir des plantes résistantes, de planifier un aménagement efficace et d’incorporer des éléments de design faciles à maintenir. Cet article explore différentes stratégies pour réduire les besoins en entretien de votre jardin tout en conservant un espace extérieur attrayant. De l’optimisation de l’arrosage à la sélection de plantes adaptées, apprenez à créer un environnement qui vous fera gagner du temps et de l’énergie.',
+   
   },
   {
     image: '/service/img7.png',
-    category: 'Insight',
-    title: 'Landscaping Trends for the Modern Homeowner',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus hendrerit suscipit egestas...',
-    fullDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus hendrerit suscipit egestas. Integer sed lacus vel nunc dapibus pharetra et et metus...',
-    comments: 100,
-    views: '20K',
-    time: '10 min ago',
+    category: 'Tendances',
+    title: 'Les tendances paysagères pour le propriétaire moderne',
+    description: 'Le design paysager évolue constamment. Découvrez les dernières tendances qui transforment les jardins modernes et les espaces extérieurs.',
+    fullDescription: 'Les tendances paysagères actuelles mettent l’accent sur des designs modernes, durables et esthétiques. Des jardins minimalistes aux espaces extérieurs multifonctionnels, cet article explore les nouveautés en matière de paysage, en soulignant l’importance de la durabilité et de l’intégration des technologies modernes. Apprenez comment transformer votre espace extérieur en un lieu à la fois pratique et élégant, tout en restant fidèle aux valeurs écologiques.',
+ 
   },
 ];
 
@@ -71,24 +65,13 @@ const ArticleCard = ({ article }) => {
           {isExpanded ? article.fullDescription : article.description}
         </p>
         <div className="flex items-center text-gray-500 text-xs mb-4">
-          <div className="flex items-center mr-4">
-            <FaComment className="mr-1" />
-            {article.comments}
-          </div>
-          <div className="flex items-center mr-4">
-            <FaEye className="mr-1" />
-            {article.views}
-          </div>
-          <div className="flex items-center">
-            <FaClock className="mr-1" />
-            {article.time}
-          </div>
+          
         </div>
         <button
           onClick={() => setIsExpanded(!isExpanded)}
           className="bg-green-600 text-white py-2 px-4 rounded-full w-full hover:bg-green-700 transition"
         >
-          {isExpanded ? 'Show Less' : 'Read More'}
+          {isExpanded ? 'Montrer moins' : 'Lire plus'}
         </button>
       </div>
     </div>

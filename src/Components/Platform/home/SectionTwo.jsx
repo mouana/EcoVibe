@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 const services = [
   {
     id: 1,
@@ -49,7 +49,8 @@ const SectionTwo = () => {
               <button className={`mt-2 px-2 py-2 bg-blue-500 text-white font-semibold rounded-lg transition-opacity duration-500 ${
                 isHovered ? 'opacity-100' : 'opacity-0'
               }`}>
-                Voir plus
+                          <Link className="text-white text-decoration-none " to ="/service"> Voir plus</Link>
+
               </button>
             </div>
           </div>

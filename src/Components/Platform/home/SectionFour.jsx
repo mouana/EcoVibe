@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const SectionFour = () => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-center p-10 gap-16 bg-[#c9eed55c] h-[80vh] mt-5">
@@ -24,7 +24,7 @@ const SectionFour = () => {
           plus vert.
         </p>
         <button className="px-3 py-2 bg-blue-500 text-white rounded-md font-bold hover:bg-blue-600">
-          VOIR PLUS
+        <Link className="text-white text-decoration-none " to ="/devis">Découvrez</Link>
         </button>
       </div>
     </div>

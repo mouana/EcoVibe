@@ -31,7 +31,7 @@ class DemandeController extends Controller
     
             // Créer la demande
             $demande = Demande::create([
-                'user_id' => $user->id,  // Assurez-vous d'ajouter 'user_id' ici
+                'user_id' => $user->id,  
                 'service_id' => $service->id,
                 'nom' => $user->name,
                 'email' => $user->email,
@@ -53,6 +53,25 @@ class DemandeController extends Controller
             ], 500);
         }
     }
+    public function getPendingDemandes()
+{
+    $demandes = Demande::where('status', 'pending')->get();
+    return response()->json($demandes, 200);
+}
+
+public function updateStatus(Request $request, $id)
+{
+    $validated = $request->validate([
+        'status' => 'required|in:pending,approved,rejected',
+    ]);
+
+    $demande = Demande::findOrFail($id);
+    $demande->status = $validated['status'];
+    $demande->save();
+
+    return response()->json(['message' => 'Status updated successfully!'], 200);
+}
+
     
     
 

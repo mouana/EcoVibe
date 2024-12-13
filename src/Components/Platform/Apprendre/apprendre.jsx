@@ -54,8 +54,10 @@ const apiKey = 'AIzaSyCMc7I02qQPleaJEdY52QAR_ch9t-VWnzs';
 
   return (
     <div className="flex flex-col items-center justify-center p-4">
+              <h3 className="m-4">Decouvrez Nous modules educatif :</h3>
       <div className="relative w-full max-w-5xl h-[428px] overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center bg-gray-800 rounded-lg shadow-lg">
+          
           {!isPlaying ? (
             // Show the thumbnail until clicked
             <img

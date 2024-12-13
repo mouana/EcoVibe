@@ -61,15 +61,13 @@ body {
     transform: translateY(-8px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   }
-  
-  /* Texte principal */
 
+  
   /* Bouton avec effet de hover */
   button {
     font-weight: 600;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
-  
 
 
   
@@ -97,15 +95,7 @@ body {
   padding: 20px;
 }
 
-/* button {
-  background-color: #007aff;
-  color: #fff;
-  border-radius: 5px;
-} */
 
-/* button:hover {
-  background-color: #005bb5;
-} */
 
   /* Responsive design pour petites tailles d'écran */
   @media (max-width: 768px) {

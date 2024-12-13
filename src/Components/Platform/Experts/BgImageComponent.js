@@ -67,11 +67,11 @@ const ExpertProfiles = () => {
                       ? `http://127.0.0.1:8000/storage/${expert.image}`
                       : "https://via.placeholder.com/96"
                   }
-                  alt={expert.NometPrenom || "Expert"}
+                  alt={expert.Nom || "Expert"}
                   className="w-full h-full object-cover rounded-full border-4 border-green-500"
                 />
               </div>
-              <h3 className="text-xl font-bold mb-2">{expert.NometPrenom}</h3>
+              <h3 className="text-xl font-bold mb-2">{expert.nom_prenom}</h3>
               <p className="mb-4">{expert.specialty}</p>
               <div className="flex space-x-3 mb-4">
                 <a

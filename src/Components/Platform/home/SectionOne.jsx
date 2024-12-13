@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 export default function SectionOne() {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -26,7 +26,7 @@ export default function SectionOne() {
           Bienvenue sur EcoVibe Votre portail vers un avenir énergétique durable
         </p>
         <button className="text-white w-25 h-10 rounded bg-blue-500 font-medium m-3">
-          Découvrez
+          <Link className="text-white text-decoration-none " to ="/service">Découvrez</Link>
         </button>
       </div>
       <div className="w-1/2 flex justify-center items-center space-x-4 overflow-hidden relative m-4">

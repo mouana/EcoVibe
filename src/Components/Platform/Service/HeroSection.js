@@ -9,6 +9,18 @@ const formatNumber = (value) => {
 };
 
 const HeroSection = () => {
+  const handleSavoirPlus = () => {
+    window.scrollTo({
+      top: document.getElementById("formation").offsetTop,
+      behavior: "smooth",
+    });
+  };
+  const handleCommencer = () => {
+    window.scrollTo({
+      top: document.getElementById("commencer").offsetTop,
+      behavior: "smooth",
+    });
+  };
   return (
     <section className="relative bg-cover bg-center h-screen" style={{ backgroundImage: 'url(/service/img1.png)' }} >
       {/* Overlay */}
@@ -22,8 +34,8 @@ const HeroSection = () => {
         
         {/* Boutons */}
         <div className="flex space-x-4 mb-8">
-          <button className="bg-blue-600 px-6 py-2 rounded hover:bg-blue-700">learn more</button>
-          <button className="bg-green-600 px-6 py-2 rounded hover:bg-green-700">Get start</button>
+          <button className="bg-blue-600 px-6 py-2 rounded hover:bg-blue-700" onClick={handleSavoirPlus}>En savoir plus</button>
+          <button className="bg-green-600 px-6 py-2 rounded hover:bg-green-700" onClick={handleCommencer}>Commencer</button>
         </div>
         
         {/* Statistiques */}
@@ -32,7 +44,7 @@ const HeroSection = () => {
             <span className="block text-2xl font-bold text-green-600">
               <CountUp end={15} duration={3} />+
             </span>
-            <span>Years Experience</span>
+            <span>Années d'expérience</span>
           </div>
           <div className="text-center">
             <span className="block text-2xl font-bold text-green-600">
@@ -44,7 +56,7 @@ const HeroSection = () => {
               />
               +
             </span>
-            <span>Product</span>
+            <span>Produits</span>
           </div>
           <div className="text-center">
             <span className="block text-2xl font-bold text-green-600">
@@ -56,13 +68,13 @@ const HeroSection = () => {
               />
               +
             </span>
-            <span>Satisfied Clients</span>
+            <span>Clients satisfaits</span>
           </div>
           <div className="text-center">
             <span className="block text-2xl font-bold text-green-600">
               <CountUp end={87} duration={3} />+
             </span>
-            <span>Local Team Members</span>
+            <span>Membres de l'équipe locale</span>
           </div>
         </div>
       </div>

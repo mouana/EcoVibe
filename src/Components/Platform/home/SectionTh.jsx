@@ -86,13 +86,13 @@ const SectionTh = () => {
   };
   function Link(){
     if(selectedButton ===1){
-      NavTo ("/")
+      NavTo ("/apprendre")
     }else if(selectedButton === 2){
-      NavTo ("/")
+      NavTo ("/service")
     }else if(selectedButton === 3){
-      NavTo ("/")
+      NavTo ("/cartes")
     }else {
-      NavTo ("/")
+      NavTo ("/expert")
     }
     }
     

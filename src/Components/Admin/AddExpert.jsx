@@ -3,17 +3,18 @@ import axios from 'axios';
 
 const ExpertForm = () => {
   const [formData, setFormData] = useState({
-    NometPrenom: '',
+    nom_prenom: '',
     specialty: '',
     biography: '',
     reviews: 0,
     image: null,
     phone: '',
     email: '',
+    password: '', 
   });
   const [formVisible, setFormVisible] = useState(false);
   const [message, setMessage] = useState('');
-  const [messageType, setMessageType] = useState(''); // 'success' or 'danger'
+  const [messageType, setMessageType] = useState(''); 
 
   // Handle input changes
   const handleInputChange = (e) => {
@@ -31,7 +32,7 @@ const ExpertForm = () => {
     e.preventDefault();
 
     // Validation logic
-    if (!formData.specialty || !formData.phone || !formData.email || !formData.NometPrenom) {
+    if (!formData.specialty || !formData.phone || !formData.email || !formData.nom_prenom) {
       setMessage('Please fill in all required fields.');
       setMessageType('danger');
       return;
@@ -39,12 +40,14 @@ const ExpertForm = () => {
 
     // Prepare form data to submit
     const formDataToSubmit = new FormData();
-    formDataToSubmit.append('NometPrenom', formData.NometPrenom);
+    formDataToSubmit.append('nom_prenom', formData.nom_prenom);
     formDataToSubmit.append('specialty', formData.specialty);
     formDataToSubmit.append('biography', formData.biography);
     formDataToSubmit.append('reviews', formData.reviews);
     formDataToSubmit.append('phone', formData.phone);
     formDataToSubmit.append('email', formData.email);
+    formDataToSubmit.append('password', formData.password);
+
     if (formData.image) {
       formDataToSubmit.append('image', formData.image);
     }
@@ -101,10 +104,12 @@ const ExpertForm = () => {
           <h3 className="uk-card-title">Add Expert</h3>
 
           {/* Input Fields */}
-          {[{ label: 'Name', name: 'NometPrenom', type: 'text' },
+          {[{ label: 'Name', name: 'nom_prenom', type: 'text' },
             { label: 'Specialty', name: 'specialty', type: 'text' },
             { label: 'Phone', name: 'phone', type: 'text' },
-            { label: 'Email', name: 'email', type: 'email' }]
+            { label: 'Email', name: 'email', type: 'email' },
+            { label: 'Password', name: 'password', type: 'password' }
+          ]
             .map(({ label, name, type }) => (
               <div className="uk-margin" key={name}>
                 <label className="uk-form-label">{label}</label>

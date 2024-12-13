@@ -6,8 +6,6 @@ import UIkit from "uikit";
 const UserList = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [editingUser, setEditingUser] = useState(null);
-  const [updatedUser, setUpdatedUser] = useState({});
 
   useEffect(() => {
     fetchUsers();
@@ -29,14 +27,22 @@ const UserList = () => {
     }
   };
 
-  const handleUpdate = async (id) => {
+  const handleDelete = async (id) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this user?");
+    if (!confirmDelete) return;
+
     try {
-      await axios.put(`http://127.0.0.1:8000/api/admin/showUser/${id}`, updatedUser);
-      UIkit.notification({ message: "User updated successfully!", status: "success" });
-      fetchUsers();
-      setEditingUser(null);
+      const token = localStorage.getItem("token");
+      await axios.delete(`http://127.0.0.1:8000/api/admin/users/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      UIkit.notification({ message: "User deleted successfully!", status: "success" });
+      setUsers(users.filter((user) => user.id !== id)); // Remove the user from the list
     } catch (error) {
-      UIkit.notification({ message: "Failed to update user", status: "danger" });
+      UIkit.notification({ message: "Failed to delete user", status: "danger" });
     }
   };
 
@@ -64,87 +70,18 @@ const UserList = () => {
             {users.map((user, index) => (
               <tr key={user.id}>
                 <td>{index + 1}</td>
-                <td>
-                  {editingUser === user.id ? (
-                    <input
-                      type="text"
-                      className="form-control"
-                      defaultValue={user.name}
-                      onChange={(e) =>
-                        setUpdatedUser({ ...updatedUser, name: e.target.value })
-                      }
-                    />
-                  ) : (
-                    user.name
-                  )}
-                </td>
-                <td>
-                  {editingUser === user.id ? (
-                    <input
-                      type="email"
-                      className="form-control"
-                      defaultValue={user.email}
-                      onChange={(e) =>
-                        setUpdatedUser({ ...updatedUser, email: e.target.value })
-                      }
-                    />
-                  ) : (
-                    user.email
-                  )}
-                </td>
-                <td>
-                  {editingUser === user.id ? (
-                    <input
-                      type="text"
-                      className="form-control"
-                      defaultValue={user.phone}
-                      onChange={(e) =>
-                        setUpdatedUser({ ...updatedUser, phone: e.target.value })
-                      }
-                    />
-                  ) : (
-                    user.phone
-                  )}
-                </td>
-                <td>
-                  {editingUser === user.id ? (
-                    <input
-                      type="date"
-                      className="form-control"
-                      defaultValue={user.birthday}
-                      onChange={(e) =>
-                        setUpdatedUser({ ...updatedUser, birthday: e.target.value })
-                      }
-                    />
-                  ) : (
-                    user.birthday
-                  )}
-                </td>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>{user.phone}</td>
+                <td>{user.birthday}</td>
                 <td>{user.role}</td>
                 <td>
-                  {editingUser === user.id ? (
-                    <>
-                      <button
-                        className="btn btn-success btn-sm me-2"
-                        onClick={() => handleUpdate(user.id)}
-                      >
-                        Save
-                      </button>
-                      <button
-                        className="btn btn-secondary btn-sm"
-                        onClick={() => setEditingUser(null)}
-                      >
-                        Cancel
-                      </button>
-                    </>
-                  ) : (
-                    <button
-                      className="btn btn-primary btn-sm"
-                      onClick={() => setEditingUser(user.id)}
-                    >
-                      Edit
-                    </button>
-                  )}
+                  <button
+                    className="btn btn-danger btn-sm"
+                    onClick={() => handleDelete(user.id)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}

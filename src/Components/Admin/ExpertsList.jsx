@@ -4,11 +4,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import UIkit from "uikit";
 import { Link } from "react-router-dom";
 import ExpertForm from './AddExpert'
+
 const ExpertsList = () => {
   const [experts, setExperts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [editingExpert, setEditingExpert] = useState(null);
-  const [updatedExpert, setUpdatedExpert] = useState({});
+  const [updatedExpert, setUpdatedExpert] = useState({
+    nom_prenom: "",
+    email: "",
+    specialty: "",
+    phone: "",
+  });
 
   useEffect(() => {
     fetchExperts();
@@ -36,7 +42,7 @@ const ExpertsList = () => {
   const startEditing = (expert) => {
     setEditingExpert(expert.id);
     setUpdatedExpert({
-      NometPrenom: expert.NometPrenom,
+      nom_prenom: expert.nom_prenom,
       email: expert.email,
       specialty: expert.specialty,
       phone: expert.phone,
@@ -76,6 +82,14 @@ const ExpertsList = () => {
     }
   };
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUpdatedExpert({
+      ...updatedExpert,
+      [name]: value,
+    });
+  };
+
   if (loading) {
     return <div className="text-center">Loading experts...</div>;
   }
@@ -103,7 +117,7 @@ const ExpertsList = () => {
                 <td>
                   <img
                     src={`http://127.0.0.1:8000/storage/${expert.image}`}
-                    alt={`${expert.NometPrenom}`}
+                    alt={`${expert.nom_prenom}`}
                     style={{
                       width: "50px",
                       height: "50px",
@@ -113,13 +127,59 @@ const ExpertsList = () => {
                   />
                 </td>
                 <td>
-                  <Link to={`/experts/${expert.id}`} className="text-decoration-none">
-                    {expert.NometPrenom}
-                  </Link>
+                  {editingExpert === expert.id ? (
+                    <input
+                      type="text"
+                      name="nom_prenom"
+                      value={updatedExpert.nom_prenom}
+                      onChange={handleInputChange}
+                      className="form-control"
+                    />
+                  ) : (
+                    <Link to={`/experts/${expert.id}`} className="text-decoration-none">
+                      {expert.nom_prenom}
+                    </Link>
+                  )}
                 </td>
-                <td>{expert.email}</td>
-                <td>{expert.specialty}</td>
-                <td>{expert.phone}</td>
+                <td>
+                  {editingExpert === expert.id ? (
+                    <input
+                      type="email"
+                      name="email"
+                      value={updatedExpert.email}
+                      onChange={handleInputChange}
+                      className="form-control"
+                    />
+                  ) : (
+                    expert.email
+                  )}
+                </td>
+                <td>
+                  {editingExpert === expert.id ? (
+                    <input
+                      type="text"
+                      name="specialty"
+                      value={updatedExpert.specialty}
+                      onChange={handleInputChange}
+                      className="form-control"
+                    />
+                  ) : (
+                    expert.specialty
+                  )}
+                </td>
+                <td>
+                  {editingExpert === expert.id ? (
+                    <input
+                      type="text"
+                      name="phone"
+                      value={updatedExpert.phone}
+                      onChange={handleInputChange}
+                      className="form-control"
+                    />
+                  ) : (
+                    expert.phone
+                  )}
+                </td>
                 <td>
                   {editingExpert === expert.id ? (
                     <>

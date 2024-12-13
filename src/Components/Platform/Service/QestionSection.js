@@ -2,29 +2,29 @@ import React, { useState } from 'react';
 
 const questions = [
   {
-    question: 'Do you specialize in both residential and commercial landscaping?',
+    question: 'Spécialisez-vous dans l\'aménagement paysager résidentiel et commercial ?',
     answer:
-      "Yes, we have extensive experience in both residential and commercial landscaping. Whether you need to enhance your home's curb appeal or create an inviting outdoor space for your business, we can help.",
+      "Oui, nous avons une grande expérience dans l'aménagement paysager résidentiel et commercial. Que vous ayez besoin d'améliorer l'apparence de votre maison ou de créer un espace extérieur accueillant pour votre entreprise, nous pouvons vous aider.",
   },
   {
-    question: 'Do you provide sustainable and eco-friendly landscaping options?',
+    question: 'Proposez-vous des options d\'aménagement paysager durables et écologiques ?',
     answer:
-      "Yes, we offer a variety of sustainable and eco-friendly options to meet your landscaping needs while caring for the environment.",
+      "Oui, nous proposons une variété d'options durables et écologiques pour répondre à vos besoins paysagers tout en respectant l'environnement.",
   },
   {
-    question: 'How do I request a consultation or estimate for my landscaping project?',
+    question: 'Comment demander une consultation ou un devis pour mon projet d\'aménagement paysager ?',
     answer:
-      "You can request a consultation by visiting our website and filling out the contact form, or by calling our office directly.",
+      "Vous pouvez demander une consultation en visitant notre site web et en remplissant le formulaire de contact, ou en appelant directement notre bureau.",
   },
   {
-    question: 'What factors influence the cost of a landscaping project?',
+    question: 'Quels sont les facteurs qui influencent le coût d\'un projet d\'aménagement paysager ?',
     answer:
-      "Several factors, such as project size, materials, and design complexity, influence the cost of a landscaping project.",
+      "Plusieurs facteurs, tels que la taille du projet, les matériaux et la complexité du design, influencent le coût d'un projet d'aménagement paysager.",
   },
   {
-    question: 'How often should I schedule landscape maintenance services?',
+    question: 'À quelle fréquence dois-je planifier des services d\'entretien paysager ?',
     answer:
-      "Landscape maintenance should generally be scheduled based on the needs of your property and the type of plants you have.",
+      "L'entretien paysager doit généralement être planifié en fonction des besoins de votre propriété et du type de plantes que vous avez.",
   },
 ];
 

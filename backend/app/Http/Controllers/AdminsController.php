@@ -22,7 +22,7 @@ class AdminsController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:admins,email',
-            'password' => 'required|min:8|confirmed',  // Added confirmed rule for matching password confirmation
+            'password' => 'required|min:8|confirmed',  
         ]);
 
         try {

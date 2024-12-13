@@ -66,4 +66,14 @@ class SimulationController extends Controller
             ], 500);
         }
     }
+    public function index()
+    {
+        if (!Auth::check()) {
+            return response()->json(['message' => 'Utilisateur non authentifié'], 401);
+        }
+
+        $simulations = Simulation::where('user_id', Auth::id())->get();
+
+        return response()->json($simulations);
+    }
 }
