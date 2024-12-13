@@ -11,4 +11,4 @@ services:
       - key: APP_KEY
         sync: false
       - key: DATABASE_URL
-        value: your-database-url
+        value: mysql://root:@localhost:3306/ecovibe
