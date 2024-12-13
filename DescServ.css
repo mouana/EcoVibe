@@ -1,0 +1,13 @@
+/* sect 2 */
+.ServicSect{
+    width:100%;
+    Display :"flex";
+    flex-direction:"row";
+    margin:10px;
+  }
+  .serv{
+    width:50%
+  }
+  .serv img{
+    width:30%;
+  }
