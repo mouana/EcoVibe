@@ -1,5 +1,4 @@
 import React from 'react';
-
 const ProjectsSection = () => {
   const handleSavoirPlus = () => {
     window.scrollTo({
@@ -10,8 +9,11 @@ const ProjectsSection = () => {
   return (
     <div 
       className="flex items-center justify-start h-screen bg-cover bg-center" 
-      style={{ backgroundImage: "url('/imagesper/foter2.jpg')", width: "100%" }}
-    >
+      style={{
+        backgroundImage: `url(${process.env.PUBLIC_URL}/imagesper/foter2.jpg)`,
+        width: "100%"
+      }}
+          >
       <div 
         className="bg-blue-500 bg-opacity-90 rounded-lg p-8 text-center w-50" 
        

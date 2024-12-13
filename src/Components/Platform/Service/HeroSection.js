@@ -22,7 +22,7 @@ const HeroSection = () => {
     });
   };
   return (
-    <section className="relative bg-cover bg-center h-screen" style={{ backgroundImage: 'url(/service/img1.png)' }} >
+    <section className="relative bg-cover bg-center h-screen" style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/service/img1.png)` }} >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-30"></div>
       

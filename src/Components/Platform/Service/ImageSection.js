@@ -6,41 +6,41 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { EffectCoverflow, Pagination, Navigation, Autoplay } from 'swiper/modules';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'; // Import des icônes
-
 const images = [
   {
-    src: '/service/WhatsApp Image 2024-11-16 at 20.37.11_f3699c6a.jpg',
+    src: `${process.env.PUBLIC_URL}/service/WhatsApp-Image-2024-11-16-at-20.37.11_f3699c6a.jpg`,
     alt: 'Image solaire 1',
   },
   {
-    src: '/service/WhatsApp Image 2024-11-16 at 20.37.12_a8731360.jpg',
+    src: `${process.env.PUBLIC_URL}/service/WhatsApp-Image-2024-11-16-at-20.37.12_a8731360.jpg`,
     alt: 'Image solaire 2',
   },
   {
-    src: '/service/WhatsApp Image 2024-11-16 at 20.37.45_b7b0219f.jpg',
+    src: `${process.env.PUBLIC_URL}/service/WhatsApp-Image-2024-11-16-at-20.37.45_b7b0219f.jpg`,
     alt: 'Image solaire 3',
   },
   {
-    src: '/service/img2.png',
+    src: `${process.env.PUBLIC_URL}/service/img2.png`,
     alt: 'Image alternative 1',
   },
   {
-    src: '/service/img4.jpg',
+    src: `${process.env.PUBLIC_URL}/service/img4.jpg`,
     alt: 'Image alternative 2',
   },
   {
-    src: '/service/img1.png',
+    src: `${process.env.PUBLIC_URL}/service/img1.png`,
     alt: 'Image alternative 3',
   },
   {
-    src: '/service/WhatsApp Image 2024-11-17 at 19.00.00_f12a1edb.jpg',
+    src: `${process.env.PUBLIC_URL}/service/WhatsApp-Image-2024-11-17-at-19.00.00_f12a1edb.jpg`,
     alt: 'Image alternative 4',
   },
   {
-    src: '/service/WhatsApp Image 2024-11-16 at 20.37.12_a8731360.jpg',
+    src: `${process.env.PUBLIC_URL}/service/WhatsApp-Image-2024-11-16-at-20.37.12_a8731360.jpg`,
     alt: 'Image alternative 5',
   },
 ];
+
 
 const GallerySection = () => {
   return (

@@ -56,7 +56,7 @@ const MessageSection = () => {
         <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="md:w-1/2">
             <img
-              src="/service/WhatsApp Image 2024-11-17 at 19.00.00_f12a1edb.jpg" // Remplacez par le chemin de votre image
+              src="/service/WhatsApp-Image-2024-11-17-at-19.00.00_f12a1edb.jpg" // Remplacez par le chemin de votre image
               alt="Paysage avec panneaux solaires"
               className="w-full h-full object-cover"
             />

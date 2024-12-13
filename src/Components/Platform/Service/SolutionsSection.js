@@ -57,7 +57,7 @@ const SolutionsSection = () => {
         {/* Image */}
         <div className="lg:w-1/2">
           <img
-            src="/service/WhatsApp Image 2024-11-16 at 00.45.38_8fb5b4a8.jpg"
+            src="/service/WhatsApp-Image-2024-11-16-at-00.45.38_8fb5b4a8.jpg"  // Fixed the filename for spaces and special characters
             alt="Sustainable energy solutions"
             className="rounded-lg shadow-md"
           />

@@ -3,28 +3,25 @@ import { FaComment, FaEye, FaClock } from 'react-icons/fa';
 
 const articles = [
   {
-    image: '/service/img5.png',
+    image: `${process.env.PUBLIC_URL}/service/img5.png`,
     category: 'Conseils',
     title: 'Choisir les bonnes plantes pour votre zone climatique',
     description: 'Le choix des plantes adaptées à votre zone climatique est essentiel pour garantir un jardin durable et résistant. Découvrez comment choisir les meilleures plantes pour votre région.',
     fullDescription: 'Lorsque vous aménagez votre jardin, il est crucial de sélectionner des plantes qui prospèrent dans les conditions climatiques locales. En tenant compte des températures, de l’humidité et du type de sol, vous pouvez créer un jardin florissant tout au long de l’année. Cet article vous guide à travers les différentes étapes pour choisir des plantes adaptées à votre zone climatique, garantissant ainsi une croissance saine et une faible consommation d’eau.',
-   
   },
   {
-    image: '/service/img6.png',
+    image: `${process.env.PUBLIC_URL}/service/img6.png`,
     category: 'Conseils',
     title: 'Comment créer un paysage à faible entretien',
     description: 'Créer un paysage à faible entretien ne signifie pas sacrifier l’esthétique. Découvrez des astuces simples pour aménager un jardin magnifique qui demande peu de soins.',
     fullDescription: 'Un paysage à faible entretien peut être aussi beau que fonctionnel. Il suffit de choisir des plantes résistantes, de planifier un aménagement efficace et d’incorporer des éléments de design faciles à maintenir. Cet article explore différentes stratégies pour réduire les besoins en entretien de votre jardin tout en conservant un espace extérieur attrayant. De l’optimisation de l’arrosage à la sélection de plantes adaptées, apprenez à créer un environnement qui vous fera gagner du temps et de l’énergie.',
-   
   },
   {
-    image: '/service/img7.png',
+    image: `${process.env.PUBLIC_URL}/service/img7.png`,
     category: 'Tendances',
     title: 'Les tendances paysagères pour le propriétaire moderne',
     description: 'Le design paysager évolue constamment. Découvrez les dernières tendances qui transforment les jardins modernes et les espaces extérieurs.',
     fullDescription: 'Les tendances paysagères actuelles mettent l’accent sur des designs modernes, durables et esthétiques. Des jardins minimalistes aux espaces extérieurs multifonctionnels, cet article explore les nouveautés en matière de paysage, en soulignant l’importance de la durabilité et de l’intégration des technologies modernes. Apprenez comment transformer votre espace extérieur en un lieu à la fois pratique et élégant, tout en restant fidèle aux valeurs écologiques.',
- 
   },
 ];
 

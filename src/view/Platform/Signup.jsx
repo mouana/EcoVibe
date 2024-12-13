@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {  useNavigate } from "react-router-dom";
+import {  useNavigate,Link } from "react-router-dom";
 import UIkit from "uikit";
 
 function Signup() {
@@ -101,6 +101,10 @@ function Signup() {
           style={{ height: "100%" }}
         >
           <h2 className="text-primary fw-bold text-center">Connexion</h2>
+          <p className="mb-4">
+            Vous n'avez pas de compte ?{" "}
+            <Link className="text-primary "  to="/inscription" >Créez un compte </Link>
+          </p>
           <form onSubmit={handleLogin}>
             <div className="mb-3">
               <label htmlFor="email" className="form-label">

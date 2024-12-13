@@ -6,21 +6,22 @@ const ExpertSection = () => {
 
   // Liste des images
   const images = [
-    "/imagesper/p11.jpg",
-    "/imagesper/p12.jpg",
-    "/imagesper/p43.jpg", 
-    "/imagesper/p44.jpg", 
-    "/imagesper/p45.jpg", 
-    "/imagesper/p46.jpeg", 
-    "/imagesper/p46.jpg", 
-    "/imagesper/p47.jpg", 
-    "/imagesper/p48.jpg", 
-    "/imagesper/52.jpg", 
-    "/imagesper/p53.jpeg", 
-    "/imagesper/p53.jpg",
-    "/imagesper/p60.jpeg", 
-    "/imagesper/p61.jpeg", 
+    `${process.env.PUBLIC_URL}/imagesper/p11.jpg`,
+    `${process.env.PUBLIC_URL}/imagesper/p12.jpg`,
+    `${process.env.PUBLIC_URL}/imagesper/p43.jpg`, 
+    `${process.env.PUBLIC_URL}/imagesper/p44.jpg`, 
+    `${process.env.PUBLIC_URL}/imagesper/p45.jpg`, 
+    `${process.env.PUBLIC_URL}/imagesper/p46.jpeg`, 
+    `${process.env.PUBLIC_URL}/imagesper/p46.jpg`, 
+    `${process.env.PUBLIC_URL}/imagesper/p47.jpg`, 
+    `${process.env.PUBLIC_URL}/imagesper/p48.jpg`, 
+    `${process.env.PUBLIC_URL}/imagesper/52.jpg`, 
+    `${process.env.PUBLIC_URL}/imagesper/p53.jpeg`, 
+    `${process.env.PUBLIC_URL}/imagesper/p53.jpg`,
+    `${process.env.PUBLIC_URL}/imagesper/p60.jpeg`, 
+    `${process.env.PUBLIC_URL}/imagesper/p61.jpeg`, 
   ];
+  
 
   // Obtenir des images aléatoires
   const getRandomImages = () => {
