@@ -1,7 +1,6 @@
 import React from "react";
 import ProfileDisplay from "../../Components/Platform/profile/ProfileDisplay";
 import ProfileDelete from "../../Components/Platform/profile/ProfileDelete";
-import Dashboard from "../../Components/Platform/profile/Dashboard";
 
 const ProfileContainer = () => {
   return (
@@ -10,7 +9,6 @@ const ProfileContainer = () => {
         <span>Votre Profile :</span>
       </h2>
       <ProfileDisplay />
-      <Dashboard />
       <ProfileDelete />
     </div>
   );

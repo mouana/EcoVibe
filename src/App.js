@@ -13,8 +13,8 @@ import ProfileContainer from "./view/Platform/Profile";
 import EnergyDashboard from "./Components/Platform/profile/Dashboard";
 import Admin from "./view/Admin/Admin";
 import ExpertsList from './Components/Admin/ExpertsList';
-import ProjectsList from './Components/Admin/ProjectsList.jsx'
-import UserList from './Components/Admin/UserList.jsx'
+// import ProjectsList from './Components/Admin/ProjectsList.jsx'
+// import UserList from './Components/Admin/UserList.jsx'
 import ExpertDetails from './Components/Admin/ExpertDetails.jsx'
 import Login from './view/Admin/Login.jsx'
 import ProjectDetails from './Components/Admin/ProjetDetails.jsx'

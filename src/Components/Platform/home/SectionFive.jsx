@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons';
-import { faStar as regularStar } from '@fortawesome/free-regular-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons';
+// import { faStar as regularStar } from '@fortawesome/free-regular-svg-icons';
 
 const ClientReviews = () => {
   const [reviews, setReviews] = useState([]);
-  const [review, setReview] = useState('');
-  const [title, setTitle] = useState('');
-  const [rating, setRating] = useState(0);
+  // const [review, setReview] = useState('');
+  // const [title, setTitle] = useState('');
+  // const [rating, setRating] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [submitError, setSubmitError] = useState(null);
+  // const [submitError, setSubmitError] = useState(null);
 
   // Fetch reviews on component mount
   useEffect(() => {
@@ -28,58 +28,58 @@ const ClientReviews = () => {
       });
   }, []);
 
-  const handleReviewChange = (e) => {
-    setReview(e.target.value);
-  };
+  // const handleReviewChange = (e) => {
+  //   setReview(e.target.value);
+  // };
 
-  const handleTitleChange = (e) => {
-    setTitle(e.target.value);
-  };
+  // const handleTitleChange = (e) => {
+  //   setTitle(e.target.value);
+  // };
 
-  const handleRatingChange = (ratingValue) => {
-    setRating(ratingValue);
-  };
+  // const handleRatingChange = (ratingValue) => {
+  //   setRating(ratingValue);
+  // };
 
-  const handleSubmitReview = (e) => {
-    e.preventDefault();
+  // const handleSubmitReview = (e) => {
+  //   e.preventDefault();
 
-    // Basic validation
-    if (!title || !review || rating === 0) {
-      setSubmitError('All fields are required. Please provide a title, a review, and a rating.');
-      return;
-    }
+  //   // Basic validation
+  //   if (!title || !review || rating === 0) {
+  //     setSubmitError('All fields are required. Please provide a title, a review, and a rating.');
+  //     return;
+  //   }
 
-    const newReview = {
-      title,
-      body: review,
-      reviewer: 'Anonymous',  // Replace with dynamic user info if available
-      rating,
-      date: new Date().toISOString().split('T')[0],
-    };
+  //   const newReview = {
+  //     title,
+  //     body: review,
+  //     reviewer: 'Anonymous',  // Replace with dynamic user info if available
+  //     rating,
+  //     date: new Date().toISOString().split('T')[0],
+  //   };
 
-    setLoading(true);
-    setSubmitError(null); // Clear previous submit error
-    // Ensure to send the authentication token if necessary
-    const token = localStorage.getItem('token'); // Assumes token is stored in local storage
+  //   setLoading(true);
+  //   setSubmitError(null); // Clear previous submit error
+  //   // Ensure to send the authentication token if necessary
+  //   const token = localStorage.getItem('token'); // Assumes token is stored in local storage
 
-    axios.post('http://127.0.0.1:8000/api/reviews', newReview, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then(response => {
-        setReviews([...reviews, response.data]);
-        setReview('');
-        setTitle('');
-        setRating(0);
-        setLoading(false);
-      })
-      .catch(error => {
-        setSubmitError('Error submitting review. Please try again later.');
-        setLoading(false);
-        console.error('Error submitting review:', error);
-      });
-  };
+  //   axios.post('http://127.0.0.1:8000/api/reviews', newReview, {
+  //     headers: {
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //   })
+  //     .then(response => {
+  //       setReviews([...reviews, response.data]);
+  //       setReview('');
+  //       setTitle('');
+  //       setRating(0);
+  //       setLoading(false);
+  //     })
+  //     .catch(error => {
+  //       setSubmitError('Error submitting review. Please try again later.');
+  //       setLoading(false);
+  //       console.error('Error submitting review:', error);
+  //     });
+  // };
 
   return (
     // <div className="container mx-auto p-6">

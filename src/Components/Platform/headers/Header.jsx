@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { FaGlobe, FaUserCircle, FaBars } from "react-icons/fa";
+import { FaGlobe, FaBars } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext";
 

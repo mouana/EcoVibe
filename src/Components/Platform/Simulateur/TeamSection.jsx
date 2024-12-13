@@ -5,7 +5,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules"; // Modules n√
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { BiEnvelope, BiWorld } from "react-icons/bi";
+// import { BiEnvelope, BiWorld } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 
 
