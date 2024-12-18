@@ -87,7 +87,7 @@ const styles = {
     backgroundColor: "#f8f9fa",
   },
   heroSection: {
-    backgroundImage: 'url("/imagesper/Nos.jpg")',
+    backgroundImage: `url(${process.env.PUBLIC_URL}/imagesper/Nos.jpg)`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     height: "60vh",

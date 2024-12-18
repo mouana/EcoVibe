@@ -3,7 +3,7 @@ import "uikit/dist/css/uikit.min.css";
 import { useNavigate } from "react-router";
 const SectionTh = () => {
   const [selectedButton, setSelectedButton] = useState(1);
-  const NavTo = useNavigate()
+  const NavTo = useNavigate();
   const content = [
     {
       id: 1,
@@ -84,30 +84,31 @@ const SectionTh = () => {
   const handleButtonClick = (id) => {
     setSelectedButton(id);
   };
-  function Link(){
-    if(selectedButton ===1){
-      NavTo ("/apprendre")
-    }else if(selectedButton === 2){
-      NavTo ("/service")
-    }else if(selectedButton === 3){
-      NavTo ("/cartes")
-    }else {
-      NavTo ("/expert")
+
+  function Link() {
+    if (selectedButton === 1) {
+      NavTo("/apprendre");
+    } else if (selectedButton === 2) {
+      NavTo("/service");
+    } else if (selectedButton === 3) {
+      NavTo("/cartes");
+    } else {
+      NavTo("/expert");
     }
-    }
-    
-  
+  }
 
   return (
-    <div className="p-10">
-      <h1 className="text-2xl font-bold mb-6">Nos Travaux</h1>
+    <div className="p-4 md:p-10">
+      <h1 className="text-xl md:text-2xl font-bold mb-6 text-center">
+        Nos Travaux
+      </h1>
       {/* Buttons */}
-      <div className="flex gap-4 justify-center mb-8">
+      <div className="flex flex-wrap gap-4 justify-center mb-8">
         {content.map((item) => (
           <button
             key={item.id}
             onClick={() => handleButtonClick(item.id)}
-            className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition w-50 h-16"
+            className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition w-full sm:w-auto h-12"
           >
             {item.title}
           </button>
@@ -116,7 +117,7 @@ const SectionTh = () => {
 
       {/* Sections */}
       <div
-        className="grid grid-cols-1 md:grid-cols-2 gap-2"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4"
         uk-scrollspy="cls: uk-animation-slide-bottom; delay: 300"
       >
         {content
@@ -124,20 +125,22 @@ const SectionTh = () => {
           .sections.map((section, index) => (
             <div
               key={index}
-              className="flex flex-col md:flex-row bg-gray-100 rounded-lg shadow-lg"
+              className="flex flex-col sm:flex-row bg-gray-100 rounded-lg shadow-lg overflow-hidden"
             >
-              <div
-                className="w-24 h-30 overflow-hidden flex"
-              >
+              <div className="w-full sm:w-1/3 h-40">
                 <img
                   src={section.image}
                   alt={section.title}
                   className="object-cover w-full h-full"
                 />
               </div>
-              <div className="p-2" onClick={Link}>
-                <h2 className="text-xl font-semibold">{section.title}</h2>
-                <p>{section.description.substring(0, 40)}...</p>
+              <div className="p-4 flex flex-col justify-center" onClick={Link}>
+                <h2 className="text-lg md:text-xl font-semibold">
+                  {section.title}
+                </h2>
+                <p className="text-sm md:text-base">
+                  {section.description.substring(0, 40)}...
+                </p>
               </div>
             </div>
           ))}

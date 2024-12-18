@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
 export default function SectionOne() {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -17,19 +18,21 @@ export default function SectionOne() {
   }, [images.length]);
 
   return (
-    <div className="flex flex-row w-full bg-emerald-400 text-white h-[30rem]">
-      <div className="w-1/2 text-center">
-        <h1 className="m-4 leading-[4rem]">
+    <div className="flex flex-col md:flex-row w-full bg-emerald-400 text-white h-auto md:h-[30rem]">
+      <div className="w-full md:w-1/2 text-center p-4">
+        <h1 className="m-4 leading-[2.5rem] md:leading-[4rem]">
           Bienvenue sur EcoVibe Votre portail vers un avenir énergétique durable
         </h1>
-        <p className="text-blue-500 text-wrap text-2xl font-medium leading-[4rem]">
+        <p className="hidden md:block text-blue-500 text-wrap text-2xl font-medium leading-[4rem]">
           Bienvenue sur EcoVibe Votre portail vers un avenir énergétique durable
         </p>
         <button className="text-white w-25 h-10 rounded bg-blue-500 font-medium m-3">
-          <Link className="text-white text-decoration-none " to ="/service">Découvrez</Link>
+          <Link className="text-white text-decoration-none" to="/service">
+            Découvrez
+          </Link>
         </button>
       </div>
-      <div className="w-1/2 flex justify-center items-center space-x-4 overflow-hidden relative m-4">
+      <div className="w-full md:w-1/2 flex justify-center items-center space-x-4 overflow-hidden relative m-4">
         {images.map((image, index) => {
           const positionClass =
             index === activeIndex
@@ -42,7 +45,7 @@ export default function SectionOne() {
               key={index}
               src={image.src}
               alt={image.alt}
-              className={`absolute w-1/3 h-3/4 rounded transition-all duration-1000 ease-in-out ${positionClass}`}
+              className={`absolute w-2/3 md:w-1/3 h-3/4 rounded transition-all duration-1000 ease-in-out ${positionClass}`}
             />
           );
         })}

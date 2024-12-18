@@ -3,12 +3,14 @@ import axios from 'axios';
 
 const TestimonialSection = () => {
   const [testimonials, setTestimonials] = useState([]);
+  const homepage = "https://mouana.github.io/EcoVibe";
 
   useEffect(() => {
     // Fetch testimonials from the backend
     axios.get('http://127.0.0.1:8000/api/testimonials')
       .then((response) => {
         setTestimonials(response.data);
+        console.log(response.image);
       })
       .catch((error) => {
         console.error('Error fetching testimonials:', error);
@@ -34,8 +36,8 @@ const TestimonialSection = () => {
               {/* Image and user info */}
               <div className="flex items-center mb-4">
                 <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
+                 src={`${homepage}${testimonial.image}`}
+                 alt={testimonial.name}
                   className="w-12 h-12 rounded-full mr-4"
                 />
                 <div>
