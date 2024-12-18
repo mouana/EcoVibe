@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/EcoVibe/static/css/main.b2c9ab93.css",
-    "main.js": "/EcoVibe/static/js/main.f1faf83b.js",
+    "main.css": "/EcoVibe/static/css/main.51cf4de1.css",
+    "main.js": "/EcoVibe/static/js/main.fd67b21d.js",
     "static/js/239.21f209cf.chunk.js": "/EcoVibe/static/js/239.21f209cf.chunk.js",
     "static/js/213.be0e3c67.chunk.js": "/EcoVibe/static/js/213.be0e3c67.chunk.js",
     "static/js/732.3b3ae494.chunk.js": "/EcoVibe/static/js/732.3b3ae494.chunk.js",
@@ -15,15 +15,15 @@
     "static/media/fa-v4compatibility.ttf": "/EcoVibe/static/media/fa-v4compatibility.0f6cb412603527bda691.ttf",
     "static/media/fa-v4compatibility.woff2": "/EcoVibe/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
     "index.html": "/EcoVibe/index.html",
-    "main.b2c9ab93.css.map": "/EcoVibe/static/css/main.b2c9ab93.css.map",
-    "main.f1faf83b.js.map": "/EcoVibe/static/js/main.f1faf83b.js.map",
+    "main.51cf4de1.css.map": "/EcoVibe/static/css/main.51cf4de1.css.map",
+    "main.fd67b21d.js.map": "/EcoVibe/static/js/main.fd67b21d.js.map",
     "239.21f209cf.chunk.js.map": "/EcoVibe/static/js/239.21f209cf.chunk.js.map",
     "213.be0e3c67.chunk.js.map": "/EcoVibe/static/js/213.be0e3c67.chunk.js.map",
     "732.3b3ae494.chunk.js.map": "/EcoVibe/static/js/732.3b3ae494.chunk.js.map",
     "453.fa9340c8.chunk.js.map": "/EcoVibe/static/js/453.fa9340c8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b2c9ab93.css",
-    "static/js/main.f1faf83b.js"
+    "static/css/main.51cf4de1.css",
+    "static/js/main.fd67b21d.js"
   ]
 }
