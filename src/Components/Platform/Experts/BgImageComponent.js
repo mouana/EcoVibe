@@ -10,6 +10,7 @@ const ExpertProfiles = () => {
   const [selectedPage, setSelectedPage] = useState(1);
   const [selectedExpert, setSelectedExpert] = useState(null);
   const expertsPerPage = 4;
+  const homepage = "https://mouana.github.io/ecovibe";
 
   useEffect(() => {
     const fetchExperts = async () => {

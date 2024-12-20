@@ -8,7 +8,7 @@ import { EffectCoverflow, Pagination, Navigation, Autoplay } from 'swiper/module
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'; // Import des icônes
 const images = [
   {
-    src: `${process.env.PUBLIC_URL}/service/WhatsApp-Image-2024-11-16-at-20.37.11_f3699c6a.jpg`,
+    src: `${process.env.PUBLIC_URL}/service/Image____1.jpg`,
     alt: 'Image solaire 1',
   },
   {

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const TestimonialSection = () => {
   const [testimonials, setTestimonials] = useState([]);
-  const homepage = "https://mouana.github.io/EcoVibe";
+  const homepage = "https://mouana.github.io/ecovibe";
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/api/testimonials')

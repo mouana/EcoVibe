@@ -8,7 +8,7 @@ const WhyChooseUs = () => {
         {/* Image */}
         <div className="lg:w-1/2 w-full mb-8 lg:mb-0">
           <img
-            src={`${process.env.PUBLIC_URL}/service/WhatsApp-Image-2024-11-16-at-01.42.22_7795dfd0.jpg`}
+            src={`${process.env.PUBLIC_URL}/service/Eolienne.jpg`}
             alt="Éolienne"
             className="rounded-lg shadow-lg w-full h-auto max-w-md mx-auto lg:max-w-full"
           />
