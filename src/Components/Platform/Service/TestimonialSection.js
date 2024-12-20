@@ -6,7 +6,6 @@ const TestimonialSection = () => {
   const homepage = "https://mouana.github.io/EcoVibe";
 
   useEffect(() => {
-    // Fetch testimonials from the backend
     axios.get('http://127.0.0.1:8000/api/testimonials')
       .then((response) => {
         setTestimonials(response.data);

@@ -6,6 +6,7 @@ const ProjectCards = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
+  const homepage = "https://mouana.github.io/EcoVibe";
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -57,7 +58,7 @@ const ProjectCards = () => {
             style={{ minHeight: '300px' }}
           >
             <img
-              src={project.image}
+              src={`${homepage}${project.image}`}
               alt={project.title}
               className="w-full h-40 object-cover"
             />
