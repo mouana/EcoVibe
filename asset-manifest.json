@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ecovibe/static/css/main.92a131cc.css",
-    "main.js": "/ecovibe/static/js/main.75c8aa9e.js",
+    "main.js": "/ecovibe/static/js/main.cbc92313.js",
     "static/js/239.21f209cf.chunk.js": "/ecovibe/static/js/239.21f209cf.chunk.js",
     "static/js/213.be0e3c67.chunk.js": "/ecovibe/static/js/213.be0e3c67.chunk.js",
     "static/js/732.3b3ae494.chunk.js": "/ecovibe/static/js/732.3b3ae494.chunk.js",
@@ -16,7 +16,7 @@
     "static/media/fa-v4compatibility.woff2": "/ecovibe/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
     "index.html": "/ecovibe/index.html",
     "main.92a131cc.css.map": "/ecovibe/static/css/main.92a131cc.css.map",
-    "main.75c8aa9e.js.map": "/ecovibe/static/js/main.75c8aa9e.js.map",
+    "main.cbc92313.js.map": "/ecovibe/static/js/main.cbc92313.js.map",
     "239.21f209cf.chunk.js.map": "/ecovibe/static/js/239.21f209cf.chunk.js.map",
     "213.be0e3c67.chunk.js.map": "/ecovibe/static/js/213.be0e3c67.chunk.js.map",
     "732.3b3ae494.chunk.js.map": "/ecovibe/static/js/732.3b3ae494.chunk.js.map",
@@ -24,6 +24,6 @@
   },
   "entrypoints": [
     "static/css/main.92a131cc.css",
-    "static/js/main.75c8aa9e.js"
+    "static/js/main.cbc92313.js"
   ]
 }
