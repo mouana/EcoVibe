@@ -63,7 +63,7 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-3">Contactez-nous</h4>
             <ul className="space-y-2">
-              <li>Email: contact@energieverte.com</li>
+              <li>Email: contact@ecovb.com</li>
               <li>Téléphone: +212 6 23 45 67 89</li>
               <li>Adresse: 123 Rue de l'Énergie, Marrakech</li>
               <li>Suivez-nous :
