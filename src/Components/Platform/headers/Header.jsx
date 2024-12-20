@@ -116,7 +116,7 @@ const Header = () => {
 
       {/* Dropdown Menu for Small Screens */}
       {menuOpen && (
-        <div className="md:hidden bg-white shadow-md absolute w-full top-16 left-0 flex flex-col items-center gap-4 py-4 z-10">
+        <div className="md:hidden bg-white shadow-md absolute w-full top-16 left-0 flex flex-col items-center gap-4 py-4 z-50">
           <NavLink to="/" className="text-gray-800" onClick={toggleMenu}>
             Accueil
           </NavLink>
