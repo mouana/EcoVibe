@@ -57,8 +57,9 @@ function Signup() {
       style={{ height: "100vh" }}
     >
       <div className="row w-75 shadow-lg rounded" style={{ height: "100%" }}>
+        {/* Left Side with Swiper */}
         <div
-          className="col-md-6 text-white d-flex flex-column justify-content-center align-items-center p-5"
+          className="col-md-6 text-white d-flex flex-column justify-content-center align-items-center p-5 mb-4 d-none d-lg-block"
           style={{ backgroundColor: "#82D49D", height: "100%" }}
         >
           <Swiper
@@ -66,7 +67,7 @@ function Signup() {
             pagination={{ clickable: true }}
             autoplay={{ delay: 3000 }}
             loop={true}
-            className="mb-4"
+            className="mb-4 d-none d-lg-block" 
             style={{ width: "100%" }}
           >
             <SwiperSlide>
@@ -96,6 +97,8 @@ function Signup() {
             Découvrez des solutions énergétiques durables avec notre plateforme.
           </p>
         </div>
+  
+        {/* Right Side with Login Form */}
         <div
           className="col-md-6 bg-white d-flex flex-column justify-content-center p-5"
           style={{ height: "100%" }}
@@ -103,7 +106,9 @@ function Signup() {
           <h2 className="text-primary fw-bold text-center">Connexion</h2>
           <p className="mb-4">
             Vous n'avez pas de compte ?{" "}
-            <Link className="text-primary "  to="/inscription" >Créez un compte </Link>
+            <Link className="text-primary" to="/inscription">
+              Créez un compte
+            </Link>
           </p>
           <form onSubmit={handleLogin}>
             <div className="mb-3">
@@ -161,6 +166,7 @@ function Signup() {
       </div>
     </div>
   );
+  
 }
 
 export default Signup;

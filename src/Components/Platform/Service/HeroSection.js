@@ -39,44 +39,45 @@ const HeroSection = () => {
         </div>
         
         {/* Statistiques */}
-        <div className="flex space-x-6 bg-white text-gray-800 p-4 rounded shadow-md">
-          <div className="text-center">
-            <span className="block text-2xl font-bold text-green-600">
-              <CountUp end={15} duration={3} />+
-            </span>
-            <span>Années d'expérience</span>
-          </div>
-          <div className="text-center">
-            <span className="block text-2xl font-bold text-green-600">
-              <CountUp
-                end={10000}
-                duration={3}
-                separator=","
-                formattingFn={(value) => formatNumber(value)} // Utilisation de la fonction de formatage
-              />
-              +
-            </span>
-            <span>Produits</span>
-          </div>
-          <div className="text-center">
-            <span className="block text-2xl font-bold text-green-600">
-              <CountUp
-                end={5000}
-                duration={3}
-                separator=","
-                formattingFn={(value) => formatNumber(value)} // Utilisation de la fonction de formatage
-              />
-              +
-            </span>
-            <span>Clients satisfaits</span>
-          </div>
-          <div className="text-center">
-            <span className="block text-2xl font-bold text-green-600">
-              <CountUp end={87} duration={3} />+
-            </span>
-            <span>Membres de l'équipe locale</span>
-          </div>
-        </div>
+        <div className="flex flex-wrap space-x-6 bg-white text-gray-800 p-4 rounded shadow-md">
+  <div className="text-center w-full sm:w-auto mb-4 sm:mb-0">
+    <span className="block text-2xl font-bold text-green-600">
+      <CountUp end={15} duration={3} />+
+    </span>
+    <span>Années d'expérience</span>
+  </div>
+  <div className="text-center w-full sm:w-auto mb-4 sm:mb-0">
+    <span className="block text-2xl font-bold text-green-600">
+      <CountUp
+        end={10000}
+        duration={3}
+        separator=","
+        formattingFn={(value) => formatNumber(value)} // Utilisation de la fonction de formatage
+      />
+      +
+    </span>
+    <span>Produits</span>
+  </div>
+  <div className="text-center w-full sm:w-auto mb-4 sm:mb-0">
+    <span className="block text-2xl font-bold text-green-600">
+      <CountUp
+        end={5000}
+        duration={3}
+        separator=","
+        formattingFn={(value) => formatNumber(value)} // Utilisation de la fonction de formatage
+      />
+      +
+    </span>
+    <span>Clients satisfaits</span>
+  </div>
+  <div className="text-center w-full sm:w-auto">
+    <span className="block text-2xl font-bold text-green-600">
+      <CountUp end={87} duration={3} />+
+    </span>
+    <span>Membres de l'équipe locale</span>
+  </div>
+</div>
+
       </div>
     </section>
   );

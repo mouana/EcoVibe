@@ -10,8 +10,8 @@ const SectionFour = () => {
           alt="Energies Renouvelables"
           className="relative z-10 rounded-lg w-80"
         />
-        <div className="absolute bottom-[-60px] left-56 bg-[#82D49D] text-white font-bold p-4 w-40 h-36 flex items-center justify-center text-center rounded-lg shadow-lg z-20">
-          Agissez pour la planète et économisez dès aujourd'hui
+<div className="absolute bottom-[-60px] left-56 bg-[#82D49D] text-white font-bold p-4 w-40 h-36 flex items-center justify-center text-center rounded-lg shadow-lg z-20 hidden sm:flex">
+Agissez pour la planète et économisez dès aujourd'hui
         </div>
       </div>
       <div className="max-w-md text-center md:text-left">

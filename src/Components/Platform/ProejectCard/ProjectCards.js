@@ -6,7 +6,6 @@ const ProjectCards = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
-  const homepage = "https://mouana.github.io/ecovibe";
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -15,7 +14,7 @@ const ProjectCards = () => {
         const formattedProjects = response.data.map((item) => ({
           id: item.id,
           title: item.type,
-          image: `${homepage}/storage/${item.image}`,
+          image: `${process.env.PUBLIC_URL}/storage/${item.image}`,
           description: item.details,
           progress: item.status === 'en cours' ? '50%' : '100%',
           location: item.location,
@@ -58,7 +57,7 @@ const ProjectCards = () => {
             style={{ minHeight: '300px' }}
           >
             <img
-              src={`${homepage}${project.image}`}
+              src={project.image}
               alt={project.title}
               className="w-full h-40 object-cover"
             />

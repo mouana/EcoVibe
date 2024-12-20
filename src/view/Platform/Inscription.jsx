@@ -151,9 +151,9 @@ function Inscrire() {
         style={{ maxWidth: "1000px", backgroundColor: "white" }}
       >
         <div
-          className="col-md-6 p-4 d-flex flex-column justify-content-center align-items-center"
-          style={{ background: "#82D49D", color: "white" }}
-        >
+  className="col-md-6 p-4 d-none d-lg-flex flex-column justify-content-center align-items-center"
+  style={{ background: "#82D49D", color: "white" }}
+>
           <Swiper
             modules={[Pagination, Autoplay]}
             pagination={{ clickable: true }}
