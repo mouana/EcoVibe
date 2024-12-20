@@ -64,9 +64,9 @@ const ExpertProfiles = () => {
                 <img
                   src={
                     expert.image && expert.image !== "null"
-                      ? `${process.env.PUBLIC_URL}/storage/${expert.image}`  
+                      ? `http://127.0.0.1:8000/storage/${expert.image}` 
                       : "https://via.placeholder.com/96"
-                  }                  
+                  }                 
                   alt={expert.Nom || "Expert"}
                   className="w-full h-full object-cover rounded-full border-4 border-green-500"
                 />

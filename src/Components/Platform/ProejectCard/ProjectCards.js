@@ -14,7 +14,9 @@ const ProjectCards = () => {
         const formattedProjects = response.data.map((item) => ({
           id: item.id,
           title: item.type,
-          image: `${process.env.PUBLIC_URL}/storage/${item.image}`,
+          image: item.image && item.image !== "null"
+  ? `http://127.0.0.1:8000/storage/${item.image}`
+  : "https://via.placeholder.com/96",
           description: item.details,
           progress: item.status === 'en cours' ? '50%' : '100%',
           location: item.location,

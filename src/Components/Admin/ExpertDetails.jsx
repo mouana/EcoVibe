@@ -47,8 +47,7 @@ const ExpertDetails = () => {
     }
   };
 
-  // Function to handle deletion of an expert
-  // Function to handle deletion of an expert
+
 const handleDeleteExpert = async () => {
   if (!window.confirm("Êtes-vous sûr de vouloir supprimer cet expert ?")) {
     return;
